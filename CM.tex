@@ -1,0 +1,283 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Malo Kerebel}
+
+\usepackage{wasysym}
+
+\usepackage{systeme}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black, urlcolor=black
+}
+
+\newcommand{\Ens}[1]{\mathbb{#1}}
+\newcommand{\ens}[1]{\mathbb{#1}}
+\newcommand{\fphi}{\quad \forall \varphi \in \mathbb{D}}
+
+\input cyracc.def
+\font\tencyr=wncysc10
+\def\cyr{\tencyr\cyracc}
+\def\dc{\mbox{\cyr SH}}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\centering{
+	
+	{\scshape\LARGE Université de Bretagne Occidentale \par}
+	\vspace{1cm}
+	{\scshape\Large Note de cours\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Ondes et Matière \unskip\strut\par}
+	\vspace{2cm}
+	{\Large\itshape Malo Kerebel \par}
+	\vfill
+	Cours par\par
+	Bruno\textsc{Rouvellou}
+
+	\vfill
+
+% Bottom of the page
+	{\large Semestre 6, année 2020-2021 \par}
+}
+\end{titlepage}
+
+\tableofcontents
+
+\chapter{Rappel d'ondes électromagnétiques dans le vide}
+
+\begin{center}
+\textbf{CC1 (2021-01-15)}
+\end{center}
+
+\section{Équations de Maxwell}
+
+\begin{enumerate}
+	\item \[
+		\nabla \cdot E = div E = \dfrac{\rho}{\varepsilon_0}
+	\]
+	\item \[
+		\nabla \cdot B = div B = 0
+	\]
+	\item \[
+		\nabla \wedge E = rot R = -\dfrac{\partial B}{\partial t}
+	\]
+	\item \[
+		\nabla \wedge B = rot B = \mu_0 \left( j + \varepsilon_0 \dfrac{\partial E}{\partial t} \right)
+	\]
+\end{enumerate}
+
+1) Forme locale du théorème de Gauss : \( \oiint_{(S)} E \cdot dS = \frac{q_{int}}{\varepsilon_0}\)
+
+2) pas de monopole magnétique : \( \oiint_{(S)} B \cdot dS = 0\)
+
+3) Induction de Faraday : \(\oint E \cdot dl = - \frac{d \Phi}{dt}\)
+
+4) Théorème d'Ampère : \(\oint B \cdot dl = \mu_0I \Rightarrow rot B = \mu_0 j\)
+
+\section{Ondes électromagnétiques dans le vide}
+
+Les équations 1 et 4 deviennent :
+\[
+	div E = 0 \quad \quad rot B = \mu_0 \varepsilon_0 \dfrac{\partial E}{\partial t}
+\]
+\(\rho\) et \(j\) sont nuls dans le vide ((absence de source de courant).
+
+\subsection{Équations de propagation}
+
+En prenant le rotationnel de l'équation (3) il vient :
+\[
+	rot (rot E) = - rot \dfrac{\partial B}{\partial t} = - \dfrac{\partial}{\partial t} rot B
+\]
+
+À l'aide de l'équation 4' on obtient :
+\[
+	rot (rot E) = - \mu_0 \varepsilon_0 \dfrac{\partial^2 E}{\partial^2 t}
+\]
+\[
+	rot (rot E) = grad (div E) - \Delta E
+\]
+compte tenu de 1' :
+\[
+	\Delta E = \mu_0 \varepsilon_0 \dfrac{\partial^2 E}{\partial^2 t}
+\]
+
+avec \(\mu_0\) la perméabilité du vide
+
+De même pour B en utilisant 4', 3 et 2
+On a l'équation de propagation :
+\[
+	\Delta B = \mu_0 \varepsilon_0 \dfrac{\partial^2 B}{\partial^2 t}
+\]
+
+\subsection{Onde plane progressive monochromatique}
+
+\begin{align}
+    E &= E_m \cos(kr - \omega t = \begin{bmatrix}
+           E_x \\
+           E_y \\
+           E_z
+         \end{bmatrix} \cos (kr- \omega t)\\         
+    B &= B_m \cos(kr - \omega t = \begin{bmatrix}
+           B_x \\
+           B_y \\
+           B_z
+         \end{bmatrix} \cos (kr- \omega t)
+  \end{align}
+
+La divergence du champ électrique est donné par :
+\[
+	\nabla E = div E = \dfrac{\partial E_x}{\partial x} + \dfrac{\partial E_y}{\partial y} + \dfrac{\partial E_z}{\partial z} = -(E_x k_x + E_y k_y + E_z k_z) \sin(kr - \omega t)
+\]
+
+La condition \(div E = 0\) implique donc que \(E_m k = 0 \Rightarrow \) E est transversal, de même B est transversal.
+
+À l'aide l'équation 3 on obtient :
+\[
+	k \wedge E_m = \omega B_m \text{ ou } k \wedge E = B 
+\]
+
+En notation complexe c'est plus simple.
+
+\[
+	div E = ik \cdot E \quad \quad rot E = ik \wedge E
+\]
+\[
+	\dfrac{\partial E}{\partial t} = -i \omega E \quad \quad \Delta E - k^2 E
+\]
+
+\paragraph{relation de dispersion}
+
+\[
+	k = \dfrac{\omega}{c}
+\]
+
+\paragraph{Polarisation}
+
+Hypotèse : propagation selon \(o_z \Rightarrow k\cdot r = kz\)
+\begin{align*}
+	E_x &= E_{m_0x} \cos (kz - \omega t)\\
+	E_y &= E_{m_0y} \cos (kz - \omega t + \phi)\\
+	E_z &= 0
+\end{align*}
+
+Par définition ce qui définit la polarisation est la direction de E.
+
+Les composantes du champ électriques peuvent s'écrire sous la forme :
+\[
+	\dfrac{E_x}{E_{m_0x}} = \cos (kz - \omega t)
+\]
+\[
+	\dfrac{E_y}{E_{m_0y}} = \cos (kz - \omega t) \cos \phi -\sin (kz - \omega t) \sin \phi
+\]
+
+d'où après simplification : 
+\[
+	\dfrac{E_y^2}{E^2_{m_0y}} + \dfrac{E_x^2}{E^2_{m_0x}} = \dfrac{2 E_y}{E^2_{m_0x}} \dfrac{E_y}{E_{m_0y}}\cos \phi + \sin^2 \phi
+\]
+
+Dans le cas \(\phi = 0 ou \phi = \pi\) on a une polarisation rectiligne.
+Si on a \(\phi \pm \pi/2\) on a une polarisation circulaire.
+
+\subsection{Vecteur de Poynting}
+
+Charge élémentaire \(\rho d \tau\) (Charge \(\rho\) dans un volume élémentaire \(d\tau\)) subie dans oem : \(F = \rho d \tau (R + v \wedge B)\)
+
+La puissance fourni à cette charge élémentaire est :
+\begin{align*}
+	F \cdot v &= \rho d \tau (R + v \wedge B) \cdot v\\
+	&=  \rho d \tau E \cdot v
+\end{align*}
+On peut réécrire :
+\[
+	F \cdot v = j \cdot Ed\tau
+\]
+(j la densité du courant)
+avec la 4ème équation de Maxwell on a :
+\[
+	E\cdot j = \dfrac{1}{\mu_0} rot B \cdot E - \epsilon_0 E \cdot \dfrac{\partial E}{\partial t}
+\]
+En utilisant :
+\[
+	div(U \wedge V) = rot (U) \cdot V - U \cdot rot V
+\]
+Ainsi, on a :
+\[
+	E \cdot j = -div \left( E \wedge \dfrac{B}{\mu_0} \right) + \dfrac{B}{\mu_0} \cdot rot E - \varepsilon_0 E \cdot \dfrac{\partial E}{\partial t}
+\]
+
+À l'aide de la troisième équation de Maxwell 
+\[
+	E \cdot j = -div \left( E \wedge \dfrac{B}{\mu_0} \right) - \dfrac{B}{\mu_0} \cdot rot E - \varepsilon_0 E \cdot \dfrac{\partial E}{\partial t} 
+\]
+On définit le vecteur de Poynting R par la relation :
+\[
+	R = E \wedge \dfrac{B}{\mu_0}
+\]
+
+\[
+	\vec{E} \cdot \vec{j} = -div \vec{R} - \dfrac{\partial}{\partial t} w
+\]
+avec \(w = \frac{1}{2} \varepsilon_0 E^2 + \frac{1}{2\mu_0} B^2\)
+
+En abscence de courant on a la loi de conservation des charges :
+\[
+	div \vec{R} + \dfrac{\partial}{\partial t} w = 0
+\]
+On peut considérer le vecteur de Poynting cocmme une "densité de courant d'énergie". Il est de la forme :
+\[
+	\vec{R} = w \vec{v}
+\]
+où \(\vec{v}\) est la vitesse de propagation de l'énergie
+
+Le vecteur de Poynting a donc pour expression :
+\[
+	\vec{R} = \vec{E} \wedge \dfrac{(\vec{k} \wedge \vec{E})}{\omega \mu_0}
+\]
+
+Finalement :
+\[
+	\vec{R} = \dfrac{k E^2}{\omega \mu_0} \dfrac{\vec{k}}{k}
+\]
+
+La densité d'énergie magnétique peut s'écrire sous la forme :
+\[
+	W_m = \dfrac{1}{2} \dfrac{B^2}{\mu_0} = \dfrac{1}{2} \varepsilon_0 c^2 B^2
+\]
+
+On peut écrire :
+\[
+	E = \dfrac{\omega}{k} B = cB
+\]
+
+La densité d'énergie magnétique est donc égale à la densité d'énergie électrique
+
+\subsection{Impédance cacractéristique}
+
+Dans le cas d'une onde plane monochromatique on définit l'impédance caractéristique d'un milieu par :
+\[
+	Z = \dfrac{E}{H}
+\]
+Dans le vide on définit H par :
+\[
+	\vec{B} = \mu_0 \vec{H}
+\]
+
+Donc l'impédance du vide est de 
+\[
+	Z_0 = 377 \Omega
+\]
+
+\end{document}
