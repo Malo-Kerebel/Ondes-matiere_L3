@@ -66,32 +66,32 @@
 
 \begin{enumerate}
 	\item \[
-		\nabla \cdot E = div E = \dfrac{\rho}{\varepsilon_0}
+		\vec{\nabla} \cdot \vec{E} = div \vec{E} = \dfrac{\rho}{\varepsilon_0}
 	\]
 	\item \[
-		\nabla \cdot B = div B = 0
+		\vec{\nabla} \cdot \vec{B} = div \vec{B} = 0
 	\]
 	\item \[
-		\nabla \wedge E = rot E = -\dfrac{\partial B}{\partial t}
+		\vec{\nabla} \wedge \vec{E} = rot \vec{E} = -\dfrac{\partial \vec{B}}{\partial t}
 	\]
 	\item \[
-		\nabla \wedge B = rot B = \mu_0 \left( j + \varepsilon_0 \dfrac{\partial E}{\partial t} \right)
+		\vec{\nabla} \wedge \vec{B} = rot \vec{B} = \mu_0 \left( \vec{j} + \varepsilon_0 \dfrac{\partial \vec{E}}{\partial t} \right)
 	\]
 \end{enumerate}
 
-1) Forme locale du théorème de Gauss : \( \oiint_{(S)} E \cdot dS = \frac{q_{int}}{\varepsilon_0}\)
+1) Forme locale du théorème de Gauss : \( \oiint_{(S)} \vec{E} \cdot d\vec{S} = \frac{q_{int}}{\varepsilon_0}\)
 
-2) pas de monopole magnétique : \( \oiint_{(S)} B \cdot dS = 0\)
+2) pas de monopole magnétique : \( \oiint_{(S)} \vec{B} \cdot d\vec{S} = 0\)
 
-3) Induction de Faraday : \(\oint E \cdot dl = - \frac{d \Phi}{dt}\)
+3) Induction de Faraday : \(\oint \vec{E} \cdot d\vec{l} = - \frac{d \Phi}{dt}\)
 
-4) Théorème d'Ampère : \(\oint B \cdot dl = \mu_0I \Rightarrow rot B = \mu_0 j\)
+4) Théorème d'Ampère : \(\oint \vec{B} \cdot d\vec{l} = \mu_0I \Rightarrow rot \vec{B} = \mu_0 \vec{j}\)
 
 \section{Ondes électromagnétiques dans le vide}
 
 Les équations 1 et 4 deviennent :
 \[
-	div E = 0 \quad \quad rot B = \mu_0 \varepsilon_0 \dfrac{\partial E}{\partial t}
+	div \vec{E} = 0 \quad \quad rot \vec{B} = \mu_0 \varepsilon_0 \dfrac{\partial \vec{E}}{\partial t}
 \]
 \(\rho\) et \(j\) sont nuls dans le vide ((absence de source de courant).
 
@@ -99,19 +99,19 @@ Les équations 1 et 4 deviennent :
 
 En prenant le rotationnel de l'équation (3) il vient :
 \[
-	rot (rot E) = - rot \dfrac{\partial B}{\partial t} = - \dfrac{\partial}{\partial t} rot B
+	rot (rot \vec{E}) = - rot \dfrac{\partial \vec{B}}{\partial t} = - \dfrac{\partial}{\partial t} rot \vec{B}
 \]
 
 À l'aide de l'équation 4' on obtient :
 \[
-	rot (rot E) = - \mu_0 \varepsilon_0 \dfrac{\partial^2 E}{\partial^2 t}
+	rot (rot \vec{E}) = - \mu_0 \varepsilon_0 \dfrac{\partial^2 \vec{E}}{\partial^2 t}
 \]
 \[
-	rot (rot E) = grad (div E) - \Delta E
+	rot (rot \vec{E}) = \vec{grad} (div \vec{E}) - \Delta \vec{E}
 \]
 compte tenu de 1' :
 \[
-	\Delta E = \mu_0 \varepsilon_0 \dfrac{\partial^2 E}{\partial^2 t}
+	\Delta \vec{E} = \mu_0 \varepsilon_0 \dfrac{\partial^2 \vec{E}}{\partial^2 t}
 \]
 
 avec \(\mu_0\) la perméabilité du vide
@@ -119,43 +119,43 @@ avec \(\mu_0\) la perméabilité du vide
 De même pour B en utilisant 4', 3 et 2
 On a l'équation de propagation :
 \[
-	\Delta B = \mu_0 \varepsilon_0 \dfrac{\partial^2 B}{\partial^2 t}
+	\Delta \vec{B} = \mu_0 \varepsilon_0 \dfrac{\partial^2 \vec{B}}{\partial^2 t}
 \]
 
 \subsection{Onde plane progressive monochromatique}
 
 \begin{align}
-    E &= E_m \cos(kr - \omega t = \begin{bmatrix}
+    \vec{E} &= \vec{E_m} \cos(\vec{k} \cdot \vec{r} - \omega t = \begin{bmatrix}
            E_x \\
            E_y \\
            E_z
-         \end{bmatrix} \cos (kr- \omega t)\\         
-    B &= B_m \cos(kr - \omega t = \begin{bmatrix}
+         \end{bmatrix} \cos (\vec{k} \cdot \vec{r} - \omega t)\\         
+    \vec{B} &= \vec{B_m} \cos(\vec{k} \cdot \vec{r} - \omega t = \begin{bmatrix}
            B_x \\
            B_y \\
            B_z
-         \end{bmatrix} \cos (kr- \omega t)
+         \end{bmatrix} \cos (\vec{k} \cdot \vec{r} - \omega t)
   \end{align}
 
 La divergence du champ électrique est donné par :
 \[
-	\nabla E = div E = \dfrac{\partial E_x}{\partial x} + \dfrac{\partial E_y}{\partial y} + \dfrac{\partial E_z}{\partial z} = -(E_x k_x + E_y k_y + E_z k_z) \sin(kr - \omega t)
+	\vec{\nabla} \cdot \vec{E} = div \vec{E} = \dfrac{\partial E_x}{\partial x} + \dfrac{\partial E_y}{\partial y} + \dfrac{\partial E_z}{\partial z} = -(E_x k_x + E_y k_y + E_z k_z) \sin(\vec{k} \cdot \vec{r} - \omega t)
 \]
 
-La condition \(div E = 0\) implique donc que \(E_m k = 0 \Rightarrow \) E est transversal, de même B est transversal.
+La condition \(div \vec{E} = 0\) implique donc que \(\vec{E_m} \cdot \vec{k} = 0 \Rightarrow \vec{E}\) est transversal, de même \(div \vec{B} = 0 \Rightarrow \vec{B}\) est transversal.
 
 À l'aide l'équation 3 on obtient :
 \[
-	k \wedge E_m = \omega B_m \text{ ou } k \wedge E = B 
+	\vec{k} \wedge \vec{E_m} = \omega \vec{B_m} \text{ ou } \vec{k} \wedge \vec{E} = \vec{B} 
 \]
 
 En notation complexe c'est plus simple.
 
 \[
-	div E = ik \cdot E \quad \quad rot E = ik \wedge E
+	div \vec{E} = i\vec{k} \cdot \vec{E} \quad \quad rot \vec{E} = i\vec{k} \wedge \vec{E}
 \]
 \[
-	\dfrac{\partial E}{\partial t} = -i \omega E \quad \quad \Delta E - k^2 E
+	\dfrac{\partial \vec{E}}{\partial t} = -i \omega \vec{E} \quad \quad \Delta \vec{E} - k^2 \vec{E}
 \]
 
 \paragraph{relation de dispersion}
@@ -166,7 +166,7 @@ En notation complexe c'est plus simple.
 
 \paragraph{Polarisation}
 
-Hypotèse : propagation selon \(o_z \Rightarrow k\cdot r = kz\)
+Hypotèse : propagation selon \(o_z \Rightarrow \vec{k}\cdot \vec{r} = kz\)
 \begin{align*}
 	E_x &= E_{m_0x} \cos (kz - \omega t)\\
 	E_y &= E_{m_0y} \cos (kz - \omega t + \phi)\\
@@ -193,38 +193,38 @@ Si on a \(\phi \pm \pi/2\) on a une polarisation circulaire.
 
 \subsection{Vecteur de Poynting}
 
-Charge élémentaire \(\rho d \tau\) (Charge \(\rho\) dans un volume élémentaire \(d\tau\)) subie dans oem : \(F = \rho d \tau (R + v \wedge B)\)
+Charge élémentaire \(\rho d \tau\) (Charge \(\rho\) dans un volume élémentaire \(d\tau\)) subie dans oem : \(\vec{F} = \rho d \tau (\vec{E} + \vec{v} \wedge \vec{B})\)
 
 La puissance fourni à cette charge élémentaire est :
 \begin{align*}
-	F \cdot v &= \rho d \tau (R + v \wedge B) \cdot v\\
-	&=  \rho d \tau E \cdot v
+	\vec{F} \cdot \vec{v} &= \rho d \tau (\vec{E} + \vec{v} \wedge \vec{B}) \cdot \vec{v}\\
+	&=  \rho d \tau \vec{E} \cdot \vec{v}
 \end{align*}
 On peut réécrire :
 \[
-	F \cdot v = j \cdot Ed\tau
+	\vec{F} \cdot \vec{v} = \vec{j} \cdot \vec{E}d\tau
 \]
 (j la densité du courant)
 avec la 4ème équation de Maxwell on a :
 \[
-	E\cdot j = \dfrac{1}{\mu_0} rot B \cdot E - \epsilon_0 E \cdot \dfrac{\partial E}{\partial t}
+	\vec{E}\cdot \vec{j} = \dfrac{1}{\mu_0} rot \vec{B} \cdot \vec{E} - \epsilon_0 \vec{E} \cdot \dfrac{\partial \vec{E}}{\partial t}
 \]
 En utilisant :
 \[
-	div(U \wedge V) = rot (U) \cdot V - U \cdot rot V
+	div(\vec{U} \wedge \vec{V}) = rot (\vec{U}) \cdot \vec{V} - \vec{U} \cdot rot \vec{V}
 \]
 Ainsi, on a :
 \[
-	E \cdot j = -div \left( E \wedge \dfrac{B}{\mu_0} \right) + \dfrac{B}{\mu_0} \cdot rot E - \varepsilon_0 E \cdot \dfrac{\partial E}{\partial t}
+	\vec{E} \cdot \vec{j} = -div \left( \vec{E} \wedge \dfrac{\vec{B}}{\mu_0} \right) + \dfrac{\vec{B}}{\mu_0} \cdot rot \vec{E} - \varepsilon_0 \vec{E} \cdot \dfrac{\partial \vec{E}}{\partial t}
 \]
 
 À l'aide de la troisième équation de Maxwell 
 \[
-	E \cdot j = -div \left( E \wedge \dfrac{B}{\mu_0} \right) - \dfrac{B}{\mu_0} \cdot rot E - \varepsilon_0 E \cdot \dfrac{\partial E}{\partial t} 
+	\vec{E} \cdot \vec{j} = -div \left( \vec{E} \wedge \dfrac{\vec{B}}{\mu_0} \right) - \dfrac{\vec{B}}{\mu_0} \cdot rot \vec{E} - \varepsilon_0 \vec{E} \cdot \dfrac{\partial \vec{E}}{\partial t} 
 \]
 On définit le vecteur de Poynting R par la relation :
 \[
-	R = E \wedge \dfrac{B}{\mu_0}
+	\vec{R} = \vec{E} \wedge \dfrac{\vec{B}}{\mu_0}
 \]
 
 \[
