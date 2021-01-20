@@ -59,7 +59,7 @@
 \chapter{Rappel d'ondes électromagnétiques dans le vide}
 
 \begin{center}
-\textbf{CC1 (2021-01-15)}
+\textbf{CM1 (2021-01-15)}
 \end{center}
 
 \section{Équations de Maxwell}
@@ -270,6 +270,7 @@ Dans le cas d'une onde plane monochromatique on définit l'impédance caractéri
 \[
 	Z = \dfrac{E}{H}
 \]
+
 Dans le vide on définit H par :
 \[
 	\vec{B} = \mu_0 \vec{H}
@@ -279,5 +280,199 @@ Donc l'impédance du vide est de
 \[
 	Z_0 = 377 \Omega
 \]
+
+\chapter{Ondes et matières dans des milieu linéaire homogène isotrope}
+
+\begin{center}
+\textbf{CM2 (2021-01-20)}
+\end{center}
+
+\section{Milieux dispersifs}
+
+C'est un milieu matériel, transparent aux ondes électro-magnétiques
+Les ondes planes progressives (O.P.P) restent solutions de l'équation de propagation \(\neq\) de celle du vide.
+
+Les conditions à respecter sont différentes, nouvelles relation de dispersion
+
+\paragraph{Ex:} O.P.P.M
+
+Propagation suivant \(O_z\) et polarisation suivant \(O_y\)
+\[
+	E_y = E_m e^{i(kz-\omega t)}
+\]
+
+\paragraph{Def :}
+La relation de dispersion est la relation h(\(\omega, \omega(h)\) entre la pulsation et le nombre d'onde
+
+\paragraph{Def}
+La vitesse de phase est la vitesse de propagation des plans équiphases
+
+\begin{align*}
+	\Rightarrow E_y = E_m e^{i(kz - \omega t)} &=  E_m e^{ik(z - \frac{\omega}{k} t)}\\
+	&= E_m e^{ik(z-v_\phi t)}
+\end{align*}
+
+\[
+	v_\phi = \dfrac{\omega}{k}
+\]
+
+- Dans le vide \(v_\phi\) est indépendant de la pulsation \(\omega\) \(v_\phi = c\)
+
+Dans le vide, \(k = \frac{\omega}{c}\)
+
+- Dans la matière \(v_\phi\) dépend en général de \(\omega\)
+
+\paragraph{Def :} un milieu dispersif est un milieu dans lequel la vitesse de phase dépend de la pulsation
+
+\paragraph{Def :} indice, \( v_\phi = \dfrac{c}{n(\omega)}\)
+
+\(\Rightarrow\) Conséquence : Superposition d'OPPM de différente pulsation, n'est pas en générale une OPPM car les ondes ne se propagent pas à la même vitesse.
+
+\subsection{E : Somme de 2 OPPM}
+
+\[
+	\Rightarrow E_y = E_m \left( e^i(k_1 x - \omega_1 t) + e^i(k_2 x - \omega_2 t) \right)
+\]
+
+avec :
+\begin{align*}
+	k_1 &= k_0 - \frac{\Delta k}{2}\\
+	k_2 &= k_0 + \frac{\Delta k}{2}\\
+	\omega &= \omega(k)\\
+	\Delta k &= k_2 - k_1 \ll k_0
+\end{align*}
+
+On fait un DL1 autour de \(k_0\) : \(\left( \omega'(k_0) = \frac{d\omega}{d k}_{k_0} \right)\)
+
+\begin{align*}
+	\omega_1 &= \omega (k_1) \simeq \omega(k_0) - \frac{\Delta k}{2} \omega' (k_0) = \omega_0 - \frac{\Delta k}{2} \omega' (k_0)\\
+	\omega_2 &= \omega (k_2) \simeq \omega(k_0) - \frac{\Delta k}{2} \omega' (k_0) = \omega_0 - \frac{\Delta k}{2} \omega' (k_0)
+\end{align*}
+
+\[
+	\Rightarrow E_y = E_m e^{i(k_0 x - \omega t)}  \left[ e^{i(- \frac{\Delta k}{2} x + (\frac{\Delta k}{2} \omega'(k_0))t)} + e^{i(+ \frac{\Delta k}{2} x - (\frac{\Delta k}{2} \omega'(k_0))t)} \right]
+\]
+
+\[
+	\Rightarrow E_y = 2 E_m e^{i(k_0 x - \omega_0 t} \cos(\frac{\Delta k}{2} (x - \omega'(k_0)t))
+\]
+\[
+	\Rightarrow E_y = Re(E_z)
+\]
+\[
+	\Rightarrow E_y = 2 E_m \cos (k_0(x- \frac{\omega_0}{k_0} t)) \cos(\frac{\Delta k}{2}(x - \frac{\omega_0}{k_0} t))
+\]
+
+Produit de 2 OPPM qui se propagent à deux vitesses différentes
+\[
+	v_1 = \frac{\omega_0}{k_0} \quad \quad \quad v_2  \omega' (k_0) = \frac{d\omega}{dk}_{k = k_0}
+\]
+
+On obtient une onde modulé, avec une onde porteuse et une moduleuse.
+
+\[
+	v_1 = \frac{\omega_0}{k_0} = v_\phi \quad \quad v_2 = \frac{d\omega}{dk}_{k_0} = v_g \text{ vitesse de groupe}
+\]
+
+\(v_g\) vitesse de déplacement de l'enveloppe (modulation ici)
+
+En terme de signaux \(\equiv \) vitesse de transmission de l'info
+En terme d'énergie \(\equiv \) vitesse de transport de l'énergie 
+
+Dans le vide 
+\[
+	v_g = \frac{d\omega}{dk} = \frac{dkc}{dk} = c = v_\phi
+\]
+
+Dans un milieu dispersif
+\[
+	v_g \neq v_\phi
+\]
+
+\subsection{Généralisation : paquets d'ondes}
+
+En mécanique quantique ça permet de rendre la dualité onde-corpuscule possible
+
+\[
+	E_y = \int_{-\infty}^{+\infty} A(k) e^{i(kz-\omega t)} dk
+\]
+Somme d'une infinité d'onde, plutot que juste 2 dans l'exemple précedant. On prendra généralement \(A(k)\) une gaussienne.
+
+\[
+	\text{On prendra } \omega = \omega(k_0) + (k - k_0) \frac{d\omega}{dk}_{k_0}
+\]
+
+On transforme \(E_y\) en :
+\begin{align*}
+	E_y &= \int_{-\infty}^{+\infty} A(k) \exp(-\omega(k_0)t + k_0 z + (k - k_0)z - t(k - k_0)\frac{d\omega}{dk}_{k_0}) dk\\
+	E_y &= e^{i(k_0 z - \omega(k_0)t} \int_{-\infty}^{+\infty} A(k) \exp \left(i \left[ (k - k_0)(z - \frac{d\omega}{dk}_{k_0}t) \right]\right) dk
+\end{align*}
+
+Dans un milieu non dispersif, les vitesses sont les même et donc le paquet d'onde n'est pas déformé, dans un milieu dispersif, les vitesses sont différentes et donc le paquet d'onde se déforme.
+
+\paragraph{Remarque :} Souvent A(k) est une gaussienne on parle de paquet d'onde gaussien
+
+\section{Polarisation de la matière}
+
+On définit le moment dipolaire (ou polarisation) \(\vec{P}\) :
+\[
+	\vec{P} = N \vec{p}
+\]
+avec N, le nombre de molécule par unité de volume et \(\vec{p}\) le moment dipolaire moyen par molécule.
+
+a) Potentiel créé par les dipoles d'un dipole électrique.
+\[
+	V_2 = \dfrac{\vec{p}\cdot \vec{r_1}}{4\pi \varepsilon_0 r^2}
+\]
+
+Dans un volume \(\tau'\), le volume élementaire \(d\tau'\), autour du point A, M le point où l'on calcule le potentiel.
+\[
+	dV(m) = \dfrac{1}{4\pi \varepsilon_0} \dfrac{\vec{P} \cdot \vec{r_1}}{r_M^2} d\tau'
+\]
+
+\begin{align*}
+	dV(m) &= \dfrac{-1}{4\pi \varepsilon_0} \left( \vec{p} \cdot \vec{\nabla} (\frac{1}{r_m}) \right) d\tau'\\
+	dV(m) &= \dfrac{1}{4\pi \varepsilon_0} \left( \vec{p} \cdot \vec{\nabla'} (\frac{1}{r_m}) \right) d\tau'
+\end{align*}
+
+Avec :
+\[
+	\vec{\nabla'} (\frac{1}{r}) = -\frac{\vec{-r_1}}{r^2} = \frac{\vec{r_1}}{r^2}
+\]
+Calculé en A pour permettre l'intégration sur le volume \(\tau'\), on a :
+\[
+	\vec{\nabla'} (\frac{1}{r}) = \frac{\vec{r_1}}{r^2}
+\]
+On a \(r \gg \) distance de la molécule \( \Rightarrow \) approximation dipolaire par intégration
+On intègre donc \(dV(m)\) :
+\[
+	V(m) = \dfrac{1}{4\pi \varepsilon_0} \int_{\tau'} \vec{p} \cdot \vec{\nabla'} (\frac{1}{r_m}) d\tau'
+\]
+Or \(\vec{\nabla} (f \vec{A}) = f \vec{\nabla} \vec{A} + \vec{A} \cdot \vec{\nabla} f \)\\
+Donc avec \(\vec{A} = \vec{p} \quad f = \frac{1}{r}\):
+\[
+	V(m) = \dfrac{1}{4\pi \varepsilon_0} \left( \int_{\tau'} \left( \vec{\nabla} \cdot \dfrac{\vec{p}}{r} \right) d\tau' - \int_{\tau'} \dfrac{\vec{\nabla} \cdot \vec{p}}{r} d\tau'\right)
+\]
+Par Green-ostrogradski :
+\[
+	V(M) = \dfrac{1}{4\pi \varepsilon_0} \left( \oint_{S'} \dfrac{\vec{p} \cdot \vec{dS'}}{r} - \int_{\tau'} \dfrac{\vec{\nabla} \cdot \vec{p}}{r} d\tau' \right)
+\]
+Avec S', la surface qui entoure \(\tau'\) dirigé vers l'extérieur
+
+On définit :
+\begin{align*}
+	\sigma_{pol} &= \vec{p} \cdot \vec{n}\\ 
+	\rho_{pol} &= - \vec{\nabla'} \cdot \vec{p}
+\end{align*}
+
+\[
+	V(M) = \dfrac{1}{4\pi \varepsilon_0} \left( \oint_{S'} \dfrac{\sigma_{pol} \cdot \vec{dS'}}{r} - \int_{\tau'} \dfrac{\rho_{pol}}{r} d\tau' \right)
+\]
+
+\(\sigma_{pol}\) est la densité surfacique de chage liées et \(\rho_{pol}\) est la densité volumique de charge liées.
+
+\begin{center}
+\textbf{CM2 (2021-01-x)}
+\end{center}
 
 \end{document}
