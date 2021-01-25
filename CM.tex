@@ -472,7 +472,186 @@ On définit :
 \(\sigma_{pol}\) est la densité surfacique de chage liées et \(\rho_{pol}\) est la densité volumique de charge liées.
 
 \begin{center}
-\textbf{CM2 (2021-01-x)}
+\textbf{CM3 (2021-01-25)}
 \end{center}
+
+\(d\tau' = \vec{d} \cdot \vec{dS}\), Les charges qui vont passer à travers dS, s'obtient avec :\[
+	dQ = N Q_m \vec{d} \cdot \vec{dS'}
+\]
+Avec \(N = \) Nombre de molécule par 
+Charge traversant dS' sous l'action de E
+\[
+	dQ = N \vec{p} \cdot \vec{dS'} = \vec{P} \cdot \vec{dS'} = (\vec{P} \cdot \vec{n}) \vec{dS'}
+\]
+\[
+	\sigma_{pol} = \dfrac{dQ}{dS'} = \vec{P} \cdot \vec{n}
+\]
+
+La charge totale qui a traversé S' est :
+\[
+	Q = \int_{S'} dQ = \int_{S'} \vec{P} \cdot \vec{dS'}
+\]
+
+Charge restante à l'intérieur de \(\tau'\) : \(-Q = \int_{\tau'} \rho_{pol} d\tau'\)
+Par Green OStrogradski on a :
+\[
+	-Q = - \int \vec{\nabla} \cdot \vec{P} d\tau'
+\]
+Donc :
+\[
+	P_{pol} = - \vec{\nabla} \cdot \vec{P}
+\]
+
+c) Généralisation
+
+* Le calcul de V à l'extérieur du milieu est calculé identiquement à l'intérieur
+
+* E est créé par la distribution extérieure de charge à l'origine de (pas réussi à lire)
+
+\[
+	V_{tot} = \dfrac{1}{4\pi \varepsilon_0} \iiint_{\tau'} \dfrac{\rho_{libre} + \rho_{pol}}{r} d\tau' + \dfrac{1}{4\pi \varepsilon_0} \iint_{S'} \dfrac{\sigma_{libre} + \sigma_{pol}}{r} dS'
+\]
+\[
+	\Rightarrow \vec{E} = \dfrac{1}{4\pi \varepsilon_0} \iiint_{\tau'} \dfrac{\rho_{libre} + \rho_{pol}}{r^2}\vec{r_1} d\tau' + \dfrac{1}{4\pi \varepsilon_0} \iint_{S'} \dfrac{\sigma_{libre} + \sigma_{pol}}{r^2} \vec{r_1} dS'
+\]
+
+(On écrira ensuite \(\sigma_l / \rho_l\) avec le l pour libre et \(\sigma_{pol} / \rho_{pol}\) pour polarisation (ou les charges liées)
+
+d) Densité de courant de polarisation
+
+Si \(E = E(t) \Rightarrow\) mouvement des charges liées \(\Rightarrow \vec{j_{pol}}\)
+
+Conservation des charges donc :
+\[
+	\iint_S \vec{j_{pol}} \cdot \vec{dS} = - \dfrac{\partial}{\partial t} \iiint_\tau \rho_{pol} d\tau
+\]
+Car la vitesse des charges qui traverse S est égal à la vitesse de diminution à l'inter**** de S (\(\tau\)), par green Ostrogradski on a :
+\[
+	\iiint_\tau \vec{\nabla} \cdot \vec{j_{pol}} = - \dfrac{\partial}{\partial t} \iiint_\tau - (\vec{\nabla} \cdot \vec{P}) d\tau
+\]
+\[
+	= \iiint_{\tau} \vec{\nabla} \cdot \dfrac{\partial \vec{P}}{\partial t} d\tau
+\]
+\[
+	\Rightarrow \vec{j_{pol}} = \dfrac{\partial \vec{P}}{\partial t} (\text{Ampère}/m^2)
+\]
+
+\subsection{Polarisation magnétique et Aimantation}
+
+\paragraph{Définitions}\quad \par
+
+Diamagnétique, phénomène très faible, induit, moment magnétique compensé
+
+Paramagnétique, phénomène faible, orientation des molécules, moment magnétique non compensé, l'intensité du phénomène est inversement proportionelle à la température (les molécules sont plus désorganisé à haute température)
+
+Ferromagnétique, phénomène fort, phénomène collectif, persistant, non linéaire
+
+\paragraph{Identification} entre magnétique et électrique : \par 
+
+Une boucle de courant génère un champ magnétique, dont l'intensité varie suivant : \(\vec{m} = IS \vec{k}\)
+
+En électrique on a la polarisation : \(\vec{P} = N \vec{p}\) en magnétique on a similairement : \(\vec{M} = N \vec{m}\) (qu'on appele plutot aimantation).
+
+Le moment dipolaire : \(V_{dip} = \dfrac{\vec{p} \cdot \vec{r_1}}{4 \pi \varepsilon_0 r^2} \) en magnétique on a : \(\vec{A_{dip}} = \dfrac{\mu_0}{4\pi} \dfrac{\vec{m} \wedge \vec{r_1}}{\sigma^2}\) (On remarquera que c'est désormais un vecteur et non un scalaire)
+
+\(dV_{dip} = \dfrac{\vec{R} \cdot \vec{r_1}}{4 \pi \varepsilon_0 r^2} \) et en magnétique : \(\vec{dA_{dip}} = \dfrac{\mu_0}{4\pi} \dfrac{\vec{M} \wedge \vec{r_1}}{\sigma^2}\)
+
+Densité de charge surfacique en électrique : \(\sigma_{pol} = \vec{P} \cdot \vec{n}\) en magnétique la densité linéique est : \(\vec{\lambda_m} = \vec{M} \wedge \vec{n}\)
+
+Et de même en dimension supérieur : \(\rho_{pol} = - \vec{\nabla} \cdot \vec{{P}}\) en magnétique : \(\vec{j_m} = rot \vec{M}\)
+
+\section{Équation de Maxwell dans les milieux linéaires homogènes isotropes}
+
+Deux équation sont des équation de structure et ne seront donc pas modifié
+
+\[
+	div \vec{B} = 0 \quad \quad rot \vec{E} = \dfrac{-\partial \vec{B}}{\partial t}
+\]
+
+La première équation va changer :
+\[
+	div \vec{E} = \dfrac{\rho}{\varepsilon_0} \quad \rho = \rho_l + \rho_{pol}
+\]
+
+Avec \(\rho_{pol} = - div \vec{P}\)
+
+\begin{align*}
+	&\Leftrightarrow \varepsilon_. div \vec{E} = \rho_l - div \vec{P}\\
+	&\Leftrightarrow div (\varepsilon_0 \vec{E} + \vec{P}) = \rho_l
+\end{align*}
+
+On note donc \(\vec{D} = \varepsilon_0 \vec{E} + \vec{P}\) l'induction électrique 
+\[
+	\Leftrightarrow div \vec{D} = \rho_l
+\]
+
+Si le milieu est un LMHI on a 
+\[
+	\vec{p} = \propto \vec{E_{loc}}
+\]
+
+\[
+	\Rightarrow \vec{P} = N \vec{p} = \varepsilon_0 \chi_e \vec{E}
+\]
+
+Avec \(\chi_e\) la suceptibilité électrique, la capacité du milieu a réagir à un milieu électrique.
+
+\[
+	\Rightarrow \vec{D} = \varepsilon_0 \vec{E} + \vec{P} = \varepsilon_0 (1 + \chi_e) \vec{E}
+\]
+Donc dans un MLHI on a \(\vec{D} = \varepsilon \vec{E}\) avec \(\varepsilon = \varepsilon_0 (1+\chi_e) = \varepsilon_0 \varepsilon_r\)
+
+\paragraph{Remarque} Dans un MLHI \(\vec{D} \propto \vec{E}\)
+
+La quatrième équation de Maxwell va changer aussi.
+\[
+	rot \vec{B} = \mu_0 \left( \vec{j} + \varepsilon_0 \dfrac{\partial \vec{E}}{\partial t}\right)
+\]
+Dans un MLHI on aura :
+\[
+	\vec{j} = \vec{j_l} + \vec{j_m} + \vec{j_{pol}}
+\]
+La densité de courant lié aux charges libres et aux charges liées
+Avec \(\vec{j_{pol}} = \dfrac{\partial \vec{P}}{\partial t}\) et \(\vec{j_m} = rot \vec{M}\), donc :
+\[
+	rot \vec{B} = \mu_0 \left( \vec{j_l} + rot \vec{M} + \dfrac{\partial \vec{P}}{\partial t} + \varepsilon_0 \dfrac{\partial \vec{E}}{\partial t}\right)
+\]
+On définit le champ magnétique \(\vec{H} = \dfrac{\vec{B}}{\mu_0} - \vec{m}\)
+
+Comme avant, dans un MLHI on a \(\vec{M} = \chi_m \vec{H} \Rightarrow \vec{H} = \dfrac{\vec{B}}{\mu_0} - \chi_m \vec{H}\), avec encore une fois, \(\chi_m\) un scalaire, la suceptibilité magnétique.
+\[
+	\vec{B} = \mu_0 ( 1 + \chi_m) \vec{H} = \mu \vec{H}
+\]
+Avec \(\mu = \mu_0 ( 1 + \chi_m) = \mu_0 \mu_r\)
+
+\paragraph{Remarque} Si le matériau est transparent on prendra \(\chi_r = 1\) et donc \(\vec{B} \simeq \mu_0 \vec{H}\)
+
+Dans un matériau diamagnétique on a \(\chi_m\) est inférieur à 0 et est indépendant de la température, pour le paramagnétique \(\chi_m\) est inversement proportionnel à la température et est supérieur à 0 et pour un matériau ferromagnétique, \(\chi_m\) augmente quand la température diminue et est \(\gg 0\), il y a existence de la température de Curie, en dessous de laquelle un matériau est ferromagnétique et la valeur de \(\chi_m\) dépend de la valeur de H, c'est donc non linéaire.
+
+Dans un MLHI on peut obtenir : 
+\[
+	rot \vec{H} = \vec{j_l} + \dfrac{\partial \varepsilon \vec{E}}{\partial t} = \vec{j_l} + \dfrac{\partial \vec{D}}{\partial t}
+\]
+
+\begin{align*}
+	M1 &: div \vec{E} = \dfrac{\rho_l}{\varepsilon} \Leftrightarrow div \vec{D = \rho_l}\\
+	M2 &: div \vec{B} = 0\\
+	M3 &:  rot \vec{E} = - \dfrac{\partial \vec{B}}{\partial t}\\
+	M4 &: rot \vec{H} = \vec{j_l} + \dfrac{\partial \vec{D}}{\partial t}
+\end{align*}
+
+\section{Modèle de Drude-Lorrentz}
+
+Hypothèse de départ, l'électron est lié aux atomes par une force de type ressort (oscillateur), la réponse de l'oscillateur détermine la polarisation de l'atome.\\
+Modèle de DL :
+
+\begin{itemize}
+	\item L'électron a une charge -e et une masse m, une vitesse \(\vec{v}\) et une position \(\vec{r}\)
+	\item Force de Lorrentz : \(-e (\vec{E} + \vec{v} \wedge \vec{B})\)
+	\item Force de frottement visqueux(collision avec son environnement) : \(- \alpha \vec{v}\)
+	\item Force de rappel (interaction des noyaux) : \(- k \vec{r}\)
+\end{itemize}
+
+Dans la force de Lorrentz la force magnétique est négligé sauf si on rajoute une force magnétique extérieur
 
 \end{document}
