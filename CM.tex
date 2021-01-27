@@ -654,4 +654,154 @@ Modèle de DL :
 
 Dans la force de Lorrentz la force magnétique est négligé sauf si on rajoute une force magnétique extérieur
 
+\[
+	\dfrac{d^2 \vec{r}}{dt^2} + \gamma \dfrac{d\vec{r}}{dt} + \omega_0 \vec{r} = -\dfrac{e}{m} \vec{E}
+\]
+
+Si on néglige la dépendance spaciale de la force excitatrice (taille de l'atome très inférieure par rapport à la longueur d'onde) : \(\underline{\vec{E}} = \vec{E_0} e^{-i\omega t}\)
+
+Les solutions sont du type :
+\[
+	\vec{r} = \vec{r_m} e^{-i\omega t} \quad \text{avec} \vec{r_m} = \vec{r_0} e^{i\phi}
+\]
+\[
+	\Rightarrow-\omega^2 \underline{\vec{r_m}} - i\omega \underline{\vec{r_m}} + \omega_0^2 \underline{\vec{r_m}} = -\dfrac{e}{m} \vec{E_0}
+\]
+\[
+	\Leftrightarrow \underline{\vec{r_m}} = \dfrac{-e/m}{\omega_0^2 - \omega^2 - i\omega \gamma} \vec{E_0}
+\]
+
+\begin{enumerate}
+	\item \(\tau = 1/\gamma\) temps de relaxation (caractéristique de l'amortissement)
+	\item \(k\) constante de la force de rappel associé à la pulsation propre de resonnance ; \(\omega_0\)
+\end{enumerate}
+Pour un électron lié \(k = 0\) et \(\omega_0 = 0\)
+
+Dans le modèle DL, pour un conducteur on a \(\omega_0 = 0; \gamma \neq 0\), pour un diélectrique on a \(\omega_0 \neq 0; \gamma \neq 0 \) et pour un plasma on a \(\omega_0 = 0; \gamma = 0\)
+
+\section{Milieu diélectrique}
+
+\paragraph{Hypothèse} Milieu diélectrique dilué : diélectrique parfait
+
+\begin{align*}
+	\rho l &= 0\\
+	\vec	{jl} &= 0
+\end{align*}
+
+\subsection{Équations de propagation}
+
+Les équation de Maxwell M3 et M1 sont inchangée
+
+\begin{align*}
+	M1''(mlhi) : div\vec{D} = \rho l &\Rightarrow div \vec{D} = 0\\
+	M4'' : rot \vec{H} = \vec{jl} +  \dfrac{\partial \vec{D}}{\partial t} &\Rightarrow rot \vec{H} = \dfrac{\partial \vec{D}}{\partial t}
+\end{align*}
+
+\[
+	rot (rot\vec{E}) = - \mu \varepsilon \dfrac{\partial^2 \vec{E}}{\partial t^2}
+\]
+
+On mijote et on trouve :
+\[
+	\Delta \vec{E} = - \mu \varepsilon \dfrac{\partial^2 \vec{E}}{\partial t^2}
+\]
+L'équation de propagation de \(\vec{E}\) dans un diélectrique parfait.
+de même pour \(\vec{B}\) :
+\begin{align*}
+	rot (rot \vec{H}) &= \vec{grad} (div \vec{H}) - \Delta \vec{H}\\
+	&= \vec{grad} (\frac{1}{\mu} div \vec{B}) - \Delta \vec{H}\\
+	&= -\Delta \vec{H}
+\end{align*}
+
+Par la 4ème équation de Maxwell on a :
+\begin{align*}
+	rot (rot \vec{H}) &= rot \left( \dfrac{\partial \vec{D}}{\partial t}\right)\\
+	&= \dfrac{\partial}{\partial t} rot \vec{D}\\
+	&= \varepsilon \dfrac{\partial}{\partial t} rot \vec{E}\\
+	&= -\varepsilon \mu \dfrac{\partial^2 \vec{H}}{\partial t^2}
+\end{align*}
+On trouve donc l'équation de propagation de \(\vec{H}\) dans un diélectrique :
+\[
+	\Delta \vec{H} = \varepsilon \mu \dfrac{\partial^2 \vec{H}}{\partial t^2}
+\]
+
+\paragraph{Remarque} l'équation de \(\vec{E}\) et \(\vec{H}\) est identique. Avec \(\dfrac{1}{\sqrt{\varepsilon\mu}}\) homogène à une vitesse.
+\[
+	v = \dfrac{1}{\sqrt{\varepsilon\mu}} = \dfrac{1}{\sqrt{\varepsilon_0\mu_0}} \dfrac{1}{\sqrt{\varepsilon_r\mu_r}} = \dfrac{c}{\sqrt{\varepsilon_r\mu_r}}
+\]
+
+\paragraph{Remarque} les équations de propagation sont identique dans le vide.
+
+\subsection{O.P.P.M}
+
+\paragraph{a) Structure de l'onde} \quad \\
+\begin{align*}
+	div \vec{E} &= 0
+	div \vec{H} &= 0
+\end{align*}
+
+\begin{align*}
+	i\vec{k} \wedge \vec{E} = i\omega \vec{B}\\
+	\vec{k} \wedge \vec{E} = \omega \vec{H} \Rightarrow \vec{k}, \vec{E}, \vec{H} \text{ Trièdre direct équivalent au vide}
+\end{align*}
+
+\paragraph{b) relation de dispersion}\quad \\
+
+\[
+	k^2 = n^2(\omega) \dfrac{\omega^2}{c^2}
+\]
+
+\paragraph{c) Transport d'énergie}\quad \\
+Puissance fournie \(\vec{E} \cdot \vec{j_l}\) par unité de volume de charge libre
+\[
+	\vec{jl} = rot \vec{H} - \dfrac{\partial \vec{D}}{\partial t}
+\]
+\[
+	\vec{E} \cdot \vec{jl} = rot \vec{H} \cdot \vec{E} - \dfrac{\partial \vec{D}}{\partial t} \cdot \vec{E}
+\]
+Or \(div (\vec{u} \wedge \vec{v}) = rot \vec{u} \cdot \vec{v} - \vec{u} \cdot rot \vec{v}\), On a donc :
+\[
+	\vec{E} \cdot \vec{jl} = - div (\vec{E} \wedge \vec{H}) + \vec{H} \cdot rot \vec{E} - \dfrac{\partial \vec{D}}{\partial t} \cdot \vec{E}
+\]
+
+\begin{equation}
+	div \vec{E} \wedge \vec{H} = - \vec{H} \cdot \dfrac{\partial \vec{B}}{\partial t} - \dfrac{\partial \vec{D}}{\partial t} \cdot \vec{E}
+\end{equation}
+
+On retrouve :
+\[
+	div \vec{R} = - \dfrac{\partial V}{\partial t}
+\]
+
+avec \(\vec{R} = \vec{E} \wedge \vec{H}\) vecteur de Poynting (définition générale), en effet :
+\[
+	\vec{R} = \vec{E} \wedge \vec{H} = \vec{E} \wedge \dfrac{\vec{B}}{\mu} = \vec{E} \wedge \dfrac{\vec{B}}{\mu_0}
+\]
+
+\begin{equation}
+	\dfrac{w_e}{w_m} = \dfrac{\varepsilon E^2}{\mu H^2}
+\end{equation}
+
+Comme pour le vide, dans un diélectrique on trouve, \(w_e = w_m\), la densité d'énergie électrique...
+
+\paragraph{d) Impédance du milieu} \quad	\\
+L'impédance du milieu est donné par 
+\[
+	Z = \dfrac{E}{H}
+\]
+Or par la troisième équation de Maxwell : \(\vec{k} \wedge \vec{E} = \omega \vec{B} = \omega \mu \vec{H}\).
+Or par la relation de dispersion : \(k^2 = \varepsilon\mu\omega^2\) donc :
+\[
+	Z = \mu \times \dfrac{1}{\sqrt{\epsilon\mu}} = \sqrt{\dfrac{\mu}{\varepsilon}} = \sqrt{\dfrac{\mu_0 \mu_r}{\varepsilon_0 \varepsilon_r}} = \sqrt{\dfrac{\mu_0}{\varepsilon_0}} \sqrt{\dfrac{\mu_r}{\varepsilon_r}}
+\]
+Dans un milieu non magnétique :
+\[
+	Z = \sqrt{\dfrac{\mu_0}{\varepsilon_0}} \dfrac{1}{\sqrt{\varepsilon_r}} = \mu_0 c \dfrac{1}{n}
+\]
+\[
+	\Rightarrow Z = \dfrac{Z_0}{n} \quad	 \text{ avec } Z_0 = 377 \Omega
+\]
+
+
+
 \end{document}
