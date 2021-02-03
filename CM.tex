@@ -801,7 +801,124 @@ Dans un milieu non magnétique :
 \[
 	\Rightarrow Z = \dfrac{Z_0}{n} \quad	 \text{ avec } Z_0 = 377 \Omega
 \]
+\begin{center}
+\textbf{CM4 (2021-02-03)}
+\end{center}
 
+\paragraph{e) Dispersion et absorbtion}
+
+\begin{align*}
+	\vec	{E} &= \vec{E_0} e^{-i\omega t}\\
+	\vec	{B} &= \vec{B_m} e^{-i\omega t}
+\end{align*}
+
+\subparagraph{$\alpha$) Suceptibilité électrique}
+
+\[
+	\vec{P} = - \delta_e \vec{r} \quad \text{avec }\delta_e \text{ le moment dipolaire}
+\]
+
+\[
+	\vec{P_m} = \dfrac{\delta_e^2}{m} \dfrac{\vec{E_0}}{\omega_0^2 - \omega^2 - i\omega/\tau}
+\]
+On compare avec la relation de suceptibilité
+\[
+	\vec{P_m} = \epsilon_0 \chi_e \vec{E_0}
+\]
+\[
+	\Rightarrow \chi_e = \dfrac{\omega_e^2}{m\varepsilon_0} \dfrac{1}{\omega_0^2 - \omega^2 - i\omega/\tau} = \chi_e' + i\chi_e''
+\]
+\(\chi_e \in \ens{C}\) il y a donc un déphasage entre \(\vec{P}\) et \(\vec{E}\)
+\begin{align*}
+	\chi_e' &= \dfrac{\delta_e^2}{M\varepsilon} \dfrac{\omega_0^2 - \omega^2}{\left( \omega_0^2 -\omega^2 \right)^2 + \omega^2/\tau^2}\\
+	\chi_e'' &= \dfrac{\delta_e^2}{M\varepsilon} \dfrac{\omega/\tau}{\left( \omega_0^2 -\omega^2 \right)^2 + \omega^2/\tau^2}
+\end{align*}
+
+Quand on a \(\omega\) grand devant \(\omega_0\), \(\chi_e'\) tend vers 0
+\(\vec{P}\) et \(\vec{E}\) sont en opposition de phase lorsque \(\omega\) est grand.
+Lorsque que \(\omega \rightarrow +\infty, \chi_e \rightarrow 0\) c'est comme si l'onde se propagé dans le vide, à haute fréquence le milieu est invisible.
+
+\subparagraph{$\beta$) Permitivité}
+\[
+	\varepsilon_r = \varepsilon_r' + i\varepsilon_r''
+\]
+\begin{align*}
+	\varepsilon_r' = 1 + \chi_e' \Rightarrow \varepsilon_r' = \varepsilon_0 ( 1 + \chi_e')\\
+	\varepsilon_r'' =\chi_e'' \Rightarrow \varepsilon_r'' = \varepsilon_0 \chi_e''
+\end{align*}
+
+\[
+	n = \sqrt{\mu_r \varepsilon_r} \simeq \sqrt{\varepsilon_r} \Rightarrow n^2 = \varepsilon_r
+\]
+\[
+	\vec{E} = \vec{E_0} e^{-\frac{\omega}{c} \beta z}e^{i\omega \left( \frac{n_0 z}{c} - t\right)}
+\]
+
+\begin{enumerate}
+	\item pour \(\omega\) très grand, ou très petit devant \(\omega_0\), \(\varepsilon_r'' \) et \(\beta\) tendent vers 0, il n'y a donc pas d'absorption
+	\item À l'inverse lorsque \(\omega = \omega_0\), il y a une très forte absorption, on est à la résonnance
+	\item Quand \(\omega \rightarrow \infty\), on a \(\varepsilon' \rightarrow \varepsilon_0\)
+	\item Forte corélation entre la vitesse de propagation et la fréquence, d'où le nom de milieu dispersif
+	\item On parle de dispersion normale lorsque quand \(\omega\) augmente, \(\varepsilon'\) augmente.
+\end{enumerate}
+
+\subparagraph{\(\gamma\)) dissipation de l'énergie}
+
+Le déphasage entre \(\vec{P}\) et \(\vec{E}\) influence l'énergie dissipé par l'onde électromagnétique dans le dielectrique.
+La puissance P cédée correspont au travail de la force électrique qui s'exerce sur les charges liées qui se déplacent sous la force de polarisation.
+Déplacement des charges sous l'action de \(\vec{E}\) : \(\vec{j_{pol}}\)
+\[
+	P = \vec{j_{pol}} \cdot \vec{E} = \dfrac{\partial \vec{P}}{\partial t} \cdot \vec{E}
+\]
+avec \(\vec{E} = Re\left( \vec{E_0} e^{-i\omega t}\right)\) et \(\vec{P} = Re\left( \vec{P_0} e^{-i\omega t + \varphi}\right)\)
+\[
+	\vec{P_m} = \varepsilon_0 \chi_e \vec{E_0} = \varepsilon_0 ( \varepsilon_r - 1) \vec{E_0}
+\]
+\begin{align*}
+	P &= Re\left( \varepsilon_0 (( \varepsilon_r - 1) + i \varepsilon_r'') \vec{E_0} (\cos \omega t - \sin \omega t) \right)\\
+	&= \varepsilon_0 \left[ (\varepsilon_r' - 1)\cos \omega t + \varepsilon_r'' \sin \omega t \right] \vec{E_0}\\
+	&\Rightarrow \dfrac{\partial \vec{P}}{\partial t} = -\varepsilon_0s \omega \left[ (\varepsilon_r' - 1) \sin \omega t - \varepsilon_r'' \cos \omega t\right] \vec{E_0}\\
+	&\Rightarrow P = - \varepsilon_0 \omega \left[ (\varepsilon_r' - 1) \cos \omega t \sin \omega t - \varepsilon_r'' \cos^2 \omega t\right] E_0^2
+	&\Rightarrow \langle P \rangle_t = \frac{1}{2} \varepsilon_0 \omega \varepsilon_r'' E_0^2
+\end{align*}
+
+On remarque que \(\langle P \rangle_t \propto \varepsilon_r''\) dissipation par effet Joule
+
+\textbf{Exemple :} four micro-onde
+\[
+	f_{micro_onde} = 2.45GHz \quad	(\lambda_{micro} \simeq 12.2)
+\]
+On décalle légèrement la fréquence des micro-ondes de façon à ce que \(\omega_{micro} \neq \omega_{eau}\), pour "cuir à coeur". Si la fréquence était égale, tout serait absorbé à la surface et rien n'irait au centre
+
+\subparagraph{$\delta$ Les différents types de polarisation}
+
+\begin{enumerate}
+	\item polarisation électronique domine au HF
+	\item polarisation ionique domine à des fréquence plus basse
+	\item polarisation d'orientation : mlécules polaires
+\end{enumerate}
+
+\[
+	\dfrac{d\rho}{dt} = -\dfrac{\sigma}{\epsilon_0}\rho
+\]
+En général : \(T \gg \tau\)
+\(\rho = 0\), dispation rapide
+
+Ce qui permet d'écrire \(dev\vec{E} = 0\)
+
+\[
+	rot \vec{B} = -\mu_0 \left( \sigma \dfrac{\partial \vec{E}}{\partial t} + \varepsilon_0 \dfrac{\partial^2 \vec{E}}{\partial t^2}\right)
+\]
+L'équation de propagation s'écrit :
+\[
+	\Delta \vec{E} = \mu_0 \sigma \left( \dfrac{\partial \vec{E}}{\partial t} + \mu_0\varepsilon_0 \dfrac{\partial^2 \vec{E}}{\partial t^2}\right)
+\]
+
+Lorsqu'on a un processus irréversible on a dissipation de l'énergie électrique
+
+\begin{center}
+\textbf{CM5 (2021-02-10)}
+\end{center}
 
 
 \end{document}
