@@ -920,5 +920,103 @@ Lorsqu'on a un processus irréversible on a dissipation de l'énergie électriqu
 \textbf{CM5 (2021-02-10)}
 \end{center}
 
+Étudions la propagation d'une onde plane uniforme en posant :
+\[
+	\vec{E} = \vec{E_m} e^{i(kz-\omega t)}
+\]
+\begin{align*}
+	\Delta \vec{E} &= \mu_0 \sigma  \dfrac{\partial \vec{E}}{\partial t} + \mu_0 \varepsilon_0 \dfrac{\partial^2 \vec{E}}{\partial t^2}\\
+	-k^2 \vec{E} &= \mu_0 \sigma (-i\omega) \vec{E} - \mu_0 \varepsilon_0 \omega^2 \vec{E}\\
+	k^2 &= i\mu_0 \sigma \omega + \dfrac{\omega^2}{c^2}\\
+	k^2 &= \dfrac{\omega^2}{c^2} \left( 1 + i\dfrac{\sigma}{\omega \varepsilon_0}\right) \quad
+	k \in \ens{C}
+\end{align*}
+
+Amplitude diminue lorsque z augmente, il y a donc dissipation d'énergie. si \(\sigma \ll \omega \varepsilon_0\) c'est un milieu à perte, un mauvais conducteur.
+À l'inverse dans le cas \(\sigma \gg \omega \varepsilon_0\) c'est un bon conducteur.
+On peut approximer :
+\[
+	k^2 \simeq \dfrac{\omega^2}{c^2} i\dfrac{\sigma}{\omega \varepsilon_0} = i\mu_0 \sigma \omega
+\]
+\[
+	k = (1+i) \sqrt{\dfrac{\mu_0 \omega \sigma}{2}}
+\]
+On voit que dans le cas d'un bon conducteur, la partie réelle et imaginaire sont égalent.
+
+\subsubsection{définition} épaisseur de peau
+
+Distance arpès laquelle l'amplitude est divisé par e, pour un bon conducteur on a:
+\[
+	\delta = \sqrt{\dfrac{2}{\mu_0 \omega \sigma}}
+\]
+\(\delta\) diminue lorsque la fréquence augmente.
+
+\subsubsection{Impédance}
+
+OPPS donc on utilise Maxwell 3 \(\vec{k} \wedge \vec{E} = \omega \vec{B} = \omega \mu_0 H\)
+
+L'impédance du métal est donc :
+\[
+	z = \dfrac{E_x}{H_y} = \dfrac{\omega \mu_0}{k}
+\]
+Après simplification on a:
+\[
+	z = \dfrac{\mu_0 c}{\sqrt{1 + \frac{i\sigma}{\varepsilon_0 \omega}}}
+\]
+
+On mijote et on trouve :
+
+\[
+	\dfrac{\left( \mu_0 c\right)^2}{\sqrt{1+\dfrac{\sigma^2}{\varepsilon^2_0 \omega^2}}} = \vert z \vert^2
+\]
+
+\subsubsection{Modèle de la conductivité électrique}
+
+Dans un conducteur, les életrons libre à vitesse aléatoire.
+\[
+	\vec{E} = 0 \Rightarrow \langle \vec{v} \rangle = 0
+\]
+\[
+	\vec{E} > 0 \Rightarrow \text{Changement de la vitesse} \rightarrow courant
+\]
+
+Lorsque les électrons entre en collision avec des ions, perte d'énergie
+
+Hypothèses:
+
+La seule force considéré est la force électrostatique
+
+Entre deux collision, 1 seule force : \(-e\vec{E}\)
+
+La collision rend la vitesse aléatoire
+
+Le changement de vitesse \(\Delta \vec{v}\) d'un électron entre deux collisions :
+\[
+	\left( m \dfrac{\Delta \vec{v}}{\tau} = -e \vec{E} \right) \Rightarrow \Delta \vec{v} = \dfrac{-e \vec{E}}{m}\tau
+\]
+\[
+	\Delta \vec{v} = \langle \vec{v} \rangle \quad \text{Car toute les autres composantes sont aléatoires.}
+\]
+
+La densité de courant implique \(\vec{f} = -N e \langle \vec{v} \rangle \)
+\[
+	\vec{j} = \dfrac{\omega e^2}{m}\tau \vec{E}
+\]
+
+Or \(\vec{j} = \sigma \vec{E}\) implique :
+\[
+	\sigma = \dfrac{We^2}{m} \tau \quad \text{La conductivité statique}
+\]
+
+L'expression de la conductivité est :
+\[
+	\sigma(\omega) = \dfrac{\sigma(0)}{1 - i\omega \tau}
+\]
+
+On peut approximer que c'est réel lorsqu'il y a beaucoup de collision (\(\omega _tau \ll 1\)) dans un milieu resistif.
+
+\subsubsection{Conducteur non parfait \(\omega_0 \neq 0\)}
+
+
 
 \end{document}
