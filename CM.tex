@@ -1017,6 +1017,98 @@ On peut approximer que c'est réel lorsqu'il y a beaucoup de collision (\(\omega
 
 \subsubsection{Conducteur non parfait \(\omega_0 \neq 0\)}
 
+\subsection{Plasma}
 
+\begin{center}
+\textbf{CM6 (2021-02-17)}
+\end{center}
+
+Beaucoup moins dense qu'un conducteur métallique, les collisions sont plus rare, donc \(\tau \gg 1\), on va pouvoir négliger les colisions.
+
+Ions sont libre mais leur masse est très supérieurs à celle des électrons, on néglige donc la contribution des électrons.
+
+\[
+	m \dfrac{d\vec{V}}{dt} = -e \vec{E}
+\]
+
+Dans le modèle de DL si \(\tau \gg 1\) on a \(\gamma = 0, \omega_0 = 0\).
+
+On se place dans un régime permanent. \(\vec{E} = E_0 e^{-i \omega t} \Rightarrow \vec{v} = \vec{v_0} e^{-i \omega t}\).
+
+\(\vec{v}\) et \(\vec{E}\) sont en quadrature \(\langle P_{dissipe} \rangle = \langle \vec{F} \vec{v}\rangle = \langle q \vec{E} \vec{v}\rangle = 0\)
+
+On considère que seul les électrons sont mobiles.
+
+\begin{align*}
+	\vec{j} &= -N e \vec{v}\\
+	&= -\dfrac{N e^2}{i \omega m} \vec{E} = \sigma \vec{E}\\
+	&\Rightarrow \sigma = i \dfrac{Ne^2}{\omega m}
+\end{align*}
+
+C'est uniquement imaginaire, il n'y a donc pas de dissipation d'énergie.
+
+Plasma comme conducteur :
+\[
+	M4 \quad rot \vec{B} = \mu_0 (\sigma \vec{E} + \varepsilon_0 \dfrac{\partial \vec{E}}{\partial t}
+\]
+\[
+	rot \vec{B} = \mu_0 (\sigma - i \omega m) \vec{E}
+\]
+
+Conducteur diélectrique :
+
+\[
+	rot \vec{B} = -i \omega \mu_0 \varepsilon_0 \varepsilon_r \vec{E}
+\]
+
+On identifie entre conducteur et diélectrique
+\[
+	\sigma - i \omega m= -i \omega \varepsilon_0 \varepsilon_r
+\]
+\[
+	\Rightarrow \varepsilon_r = 1 + \dfrac{i \sigma}{\omega \varepsilon_0} \quad \sigma = \dfrac{i \omega e^2}{m \omega}
+\]
+\[
+	\Rightarrow \varepsilon_r = 1 - \dfrac{\omega e^2}{m \varepsilon_0} \dfrac{1}{\omega^2}
+\]
+\[
+	\varepsilon_r = 1 - \dfrac{\omega p^2}{\omega^2}
+\]
+
+On utilise désormais Maxwell 1, \(\rho / \varepsilon_0\), bien que le plasma est globalement neutre, il est localement chargé, car la distance entre les électrons est grande, donc \(\rho \neq 0\).
+
+On en déduit l'équation de propagation.
+\[
+	rot rot \vec{E} = -\dfrac{\partial}{\partial t} \left( rot \vec{B} \right)
+\]
+
+\[
+	\vec{grad}(div \vec{E})  - \Delta \vec{E} = -\mu_0 \varepsilon_0 \varepsilon_r \dfrac{\partial^2 \vec{E}}{\partial t^2}
+\]
+
+\[
+	-\vec{k} (\vec{k} \vec{E}) + k^2 \vec{E} = \dfrac{\omega^2}{c^2} \varepsilon_r \vec{E}
+\]
+Mode longitudinale
+\[
+	\Rightarrow -k^2 \vec{E} + k^2 \vec{E} = 0 = \dfrac{\omega^2}{c^2} \varepsilon_r \vec{E}
+\]
+
+\[
+	\Rightarrow \varepsilon_r = 0 \Rightarrow \omega = \omega_p
+\]
+avec \(\omega_p\) la pulsation plasma. Il y a une permitivité nulle à UNE fréquence donnée.
+
+Mode transverse
+\[
+	\vec{k} \cdot \vec{E} = 0 \Rightarrow k^2 = \dfrac{\omega^2}{c^2} \varepsilon_r 
+\]
+\[
+	k^2 = \dfrac{\omega^2}{c^2} \left( 1 - \dfrac{\omega_0^2}{\omega^2} \right)
+\]
+
+Si \(\omega < \omega_p\), k est un imaginaire pur, propagation est impossible, l'onde est réfléchie.
+
+Si \(\omega > \omega_p\), on a une propagation sans perte d'énergie, on a un k réel.
 
 \end{document}
