@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage[squaren, Gray]{SIunits}
 \author{Malo Kerebel}
 
 \usepackage{wasysym}
@@ -45,7 +46,7 @@
 	{\Large\itshape Malo Kerebel \par}
 	\vfill
 	Cours par\par
-	Bruno \textsc{Rouvellou}
+	Bruno \textsc{Rouvellou} et Stéphane \textsc{Rioual}
 
 	\vfill
 
@@ -1113,5 +1114,207 @@ Mode transverse
 Si \(\omega < \omega_p\), k est un imaginaire pur, propagation est impossible, l'onde est réfléchie.
 
 Si \(\omega > \omega_p\), on a une propagation sans perte d'énergie, on a un k réel.
+
+\chapter{Théorie de l'électromagnétisme du diélectrique au conducteur}
+
+\begin{center}
+\textbf{CM7 (2021-03-04)}
+\end{center}
+
+\section{Spectres électromagnétiques}
+
+Spectres visible de \unit{400}{\nano\meter} à \unit{800}{\nano\meter}
+
+Radiofréquence de \unit{30}{\kilo\hertz} à \unit{300}{\giga\hertz}
+
+\section{Formes locales des équations de Maxwell}
+
+Loi de Faraday : \(\vec{rot} \vec{E} = \dfrac{-\partial \vec{B}}{\partial t}\)
+
+Théorème d'Ampère : \(\vec{rot} \vec{H} = \dfrac{-\partial \vec{D}(\vec{r}t)}{\partial t} + \vec{j}(\vec{r}t)\) Avec \(\vec{j}(\vec{r}t)\) la densité de courant de conduction (en \unit{}{\ampere\per \meter\squared}).
+
+Théorème de Gauss : \(div \vec{D} = \rho(\vec{r},t)\) la densité volumique de charge (en \unit{}{\coulomb \per \meter\cubed})
+
+Conservation du flux : \(div \vec{B} = 0\)
+
+\begin{align*}
+	\text{Avec les vecteurs :}& \text{Déplacement électrique } \vec{D}\\
+	& \text{Champs électrique } \vec{E}\\
+	& \text{Conduction magnétique } \vec{B}
+	& \text{Champ magnétique } \vec{H}
+\end{align*}
+
+\subsection{Matériaux diélectriques sur porte-milieu linéaires}
+
+Il n'y a pas de conduction électrique.
+
+Pour un matériau diélectrique (homogène et isotrope), le champ électrique implique une polarisation du milieu, qui implique un moment dipolaire. Un vecteur \(\vec{P}\) est crée. Il augmente la valeur de \(\vec{D}\)
+
+\[
+	\vec{D} = \varepsilon_0 \vec{E} + \vec{P}
+\]
+
+Avec \(\vec{P}\) le vecteur de polarisation électrique.
+Pour un matériau linéaire : \(\vec{P} = \chi_e \varepsilon_0 \vec{E}\), avec \(\chi_e\) la susceptibilité électrique.
+
+Donc : \(\vec{D} = \varepsilon_0 \vec{E} + \vec{P} = (1 + \chi_e) \vec{E} = \varepsilon_0 \varepsilon_r \vec{E} = \varepsilon \vec{E}\)
+
+Équation de Maxwell : \(\vec{rot} \vec{H} = \dfrac{-\partial \vec{D}(\vec{r}t)}{\partial t} \Leftrightarrow \vec{rot} \vec{H} = \dfrac{-\partial \varepsilon \vec{E}(\vec{r}t)}{\partial t}\)
+
+Si on suppose une variation temporelle sinusoïdale pour \(\vec{H}\), on a :
+\[
+	\vec{rot} \vec{H} = j \omega \varepsilon \vec{E}(\vec{r}t)
+\]
+L'équation de Maxwell pour un milieu diélectrique linéaire, sans perte.
+
+De façon similaire pour les matériaux diélectriques :
+\[
+	\vec{B} = \mu_0 (\vec{u} + \vec{H})
+\]
+Avec \((\vec{u} + \vec{H})\) le vecteur aimantation (dipôle magnétique)
+
+Pour un matériau linéaire : \(\vec{H} = \psi_m \vec{H}\)
+Avec \(\psi_m\) la susceptibilité magnétique
+
+Donc \(\vec{B} = \mu_0 (1 + \lambda_m) \vec{H} = \mu_0 \mu_r \vec{H} = \mu \vec{H}\)
+
+Avec \(\mu_r\) la perméabilité magnétique du matériau.
+
+\subsection{Conduction électrique}
+
+Pour un matériau conducteur les charges libres sont reliées à la conduc.
+Il s'agit d'électron (métal) ou d'ions (solution électrolytique)
+
+Loi d'Ohm locale : \(\vec{j} = \sigma \vec{E}\) avec \(\sigma\) la conductivité électrique.
+\[
+	dI = \vec{j} \cdot \vec{dB}
+\]
+
+Principe de conservation des charges participantes
+
+\subsection{Matériaux diélectrique avec pertes}
+
+\subsubsection{Pertes dans le diélectrique : notation complexe}
+
+On note \(\varepsilon = \varepsilon' - j \varepsilon'\) la permittivité diélectrique complexe.
+
+\(\varepsilon''\) : perte du diélectrique (création de chaleur des moments dipolaire lors de leur rotation, diélectrique non parfait)
+
+\subsubsection{Conductivité électrique}
+
+Les pertes dans un milieu diélectrique peuvent aussi être considérées comme résultants d'une conductivité électrique non nulles : Loi d'Ohm locale : \(\vec{j} = \sigma \vec{E}\) (toujours avec \(\sigma\) la conductivité électrique du matériau
+
+\section{Équation de propagation}
+
+\subsection{Équation de propagation dans un milieu infini, linéaire, sans perte et sans source}
+
+\(\vec{rot} \vec{H} = \frac{\partial \vec{D}(\vec{r}, t)}{\partial t} = E \frac{\partial \vec{E}(\vec{r}, t)}{\partial t}\) et \(\vec{rot} \vec{E} = - \frac{\partial \vec{B}(\vec{r}, t)}{\partial t} = - \mu \frac{\partial \vec{H}(\vec{r,t)}}{\partial t}\)
+
+\begin{align*}
+	\vec{rot} \left( \vec{rot} \vec{H} \right) &= \varepsilon \dfrac{\partial \vec{rot} \vec{E}(\vec{r}, t)}{\partial t} = - \varepsilon \mu \dfrac{\partial^2 \vec{H}(\vec{r}, t)}{\partial t^2}\\
+	&= \vec{grad}\left(div \vec{H}\right) - \vec{\Delta H} \text{ or } div \vec{B} = 0\\
+	&\Rightarrow \vec{\Delta H} - \varepsilon \mu \dfrac{\partial^2 \vec{H}(\vec{r}, t)}{\partial t^2} = 0
+\end{align*}
+
+De la même façon on obtient : \(\vec{\Delta E} - \varepsilon \mu \dfrac{\partial^2 \vec{E}(\vec{r}, t)}{\partial t^2} = 0\)
+
+Ici, \(\varepsilon\) et \(\mu\) sont réels car on est dans le cas de matériaux parfaits sans perte.
+\[
+	\vec{\Delta E}(\vec{r}, t) - \varepsilon \mu \dfrac{\partial^2 \vec{E}(\vec{r}, t)}{\partial t^2} = 0
+\]
+
+Nous considérons une solution harmonique de type : \(\underline{\vec{E}}(\vec{r}, t) = \vec{E}(r) e^{j\omega t}\)
+
+\[
+	\vec{\Delta E}(\vec{r}, t) - \omega^2 \varepsilon \mu \vec{E} (r) = 0 \text{ de même pour } \vec{H}
+\]
+
+La côte de propagation est : \(k - \omega \sqrt{\varepsilon \mu}\)
+
+On résout l'équation en coordonnées cartésiennes : 
+\[
+	\left( \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2} + \dfrac{\partial^2}{\partial z^2} \right) \underline{E_x}(x, y, z)
+\]
+
+On résout par la méthode de séparation des variables :
+\begin{align*}
+	\underline{E_x}(x, y, z) = P(x) Q(y) R(z)\\
+	\dfrac{P''}{P} + \dfrac{Q''}{Q} + \dfrac{R''}{R} = -k^2 = - (k_x^2 + k_y^2 + k_z^2)
+\end{align*}
+
+Donc chaque terme de l'équation doit être constant, Ainsi on a :
+
+\(\dfrac{P''(x)}{P(x)} = -k_x^2\) \hfill \(\dfrac{Q''(x)}{Q(x)} = -k_y^2\) \hfill \(\dfrac{R''(x)}{R(x)} = -k_z^2\)
+
+Ainsi, on obtient une équation du second ordre à coefficients constants :
+\begin{align*}
+	&P''(x) + k_x^2 P(x) &= 0\\
+	&P(x) = Ae^{j k_x x} + B e^{-j k_x x}
+\end{align*}
+
+Soit :\(\underline{E_x} (x, y, z) = E_{0x} e^{-j (k_x x + k_y y + k_z z)}\) (on ne conserve que l'onde progressive)
+
+\begin{align*}
+	\underline{E_x} (x, y, z) &= E_{0x} e^{-j (k_x x + k_y y + k_z z)} = E_{0x} e^{-k \vec{k} \vec{r}}\\
+	\underline{E_y} (x, y, z) &= E_{0y} e^{ -j \vec{k} \vec{r} }
+	\underline{E_z} (x, y, z) &= E_{0z} e^{ -j \vec{k} \vec{r} }
+\end{align*}
+
+On calcule désormais \(\vec{H}\)
+
+\[
+	\vec{H} = \dfrac{k}{\omega \mu} \vec{n} \wedge \vec{E} \quad	\vec{k} \cdot \vec{E_0} = 0
+\]
+
+Il s'agit donc d'une onde plane se propageant suivant le vecteur \(\vec{k}\) :
+\[
+	\vert \vert \vec{E} \vert \vert = \eta \vert \vert \vec{H} \vert \vert \quad	\eta = \frac{\mu}{\varepsilon}
+\]
+\(\eta\) est l'impédance intrinsèque du milieu.
+
+C'est une onde plane pour \(\vec{E}\) et \(\vec{H}\) : mode transversale électromagnétique
+
+\subsubsection{Vitesse de phase et  indice}
+Prenons suivant l'axe ( \(O_z\) )
+\[
+	\vec{E} (\vec{r} ) = e^{j ( \omega t - kz)}
+\]
+
+Vitesse de phase de l'onde \footnote{\(\vec{E} (\vec{r}, t) = \vec{E_0} e^{j(\omega t - k z)}\)\\ la vitesse de phase est équivalent aux lieux où la phase est constante.\[
+	\omega dt - k dz = 0
+\]} est :
+\[
+	\omega dt - k dz = 0 \quad v_\varphi = \dfrac{\omega}{k} \quad \text{ avec } k = \omega \sqrt{\varepsilon \mu}
+\]
+\[
+	v_\varphi = \dfrac{1}{\sqrt{\varepsilon \mu}} = \dfrac{c}{\sqrt{\varepsilon r}}
+\]
+
+Nous pouvons donc définir l'indice du diélectrique sous la forme : \(n = \dfrac{c}{v_\varphi} = \dfrac{ck}{\omega}\)
+
+\subsubsection{Longueur d'onde}
+
+\[
+	\vec{E}(r) = \vec{E_0} e^{j(\omega t - k z)}
+\]
+
+On a : 
+\[
+	(\omega t - k z) - (\omega t - k z + \lambda) = 2\pi \Rightarrow \lambda = \dfrac{2\pi}{k} = \dfrac{v_\varphi}{f}
+\]
+
+Avec f la fréquence de l'onde.
+
+\subsubsection{Polarisation rectiligne ou circulaire}
+
+\[
+	\vec{E}(r) = \vec{E_0} e^{-j \vec{k} \vec{r}}
+\]
+
+Avec \(\vec{E_0}\) un vecteur constant. Si il est à composantes réelles, la polarisation est linéaire, si il est à composante imaginaire la polarisation est circulaire.
+
+\begin{center}
+\textbf{CM8 (2021-03-11)}
+\end{center}
 
 \end{document}
