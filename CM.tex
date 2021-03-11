@@ -1317,4 +1317,113 @@ Avec \(\vec{E_0}\) un vecteur constant. Si il est à composantes réelles, la po
 \textbf{CM8 (2021-03-11)}
 \end{center}
 
+
+\subsection{Onde plane dans un milieu diélectrique avec une conductivité \(\sigma\) non nulle}
+
+Équation de Helmotz :
+\[
+	\vec{\Delta E} (r) + \omega^2 \varepsilon_0 \varepsilon_r' \mu (1 - j\dfrac{\sigma}{\omega \varepsilon_0 \varepsilon_r'} \vec{E}(r)) = 0
+\]
+
+En considérant directement les équations de Maxwell :
+\[
+	rot\vec{H} ) j\omega \varepsilon \vec{E}(r) + \sigma \vec{E}(r) = j\omega \varepsilon \vec{E}(r) (1- j\dfrac{\sigma}{\omega \varepsilon})
+\]
+\[
+	rot\vec{E} = -j\omega\mu \vec{H}(r)
+\]
+
+On en déduit :
+\[
+	\vec{\Delta E} (r) + \omega^2 \varepsilon \mu (1 - j\dfrac{\sigma}{\omega \varepsilon} \vec{E}(r) = 0
+\]
+
+On pose \(\gamma \in \ens{C}\), \(\gamma = \alpha + j\beta\) \(\gamma = j\omega \sqrt{\varepsilon\mu} \sqrt{1 - j\dfrac{\sigma}{\omega \varepsilon}}\), on peut donc simplifier :
+\[
+	\vec{\Delta E} (r) - \gamma^2 \vec{E}(r) = 0
+\]
+
+Le \(\gamma\) est la constante de propagation complexe, \(\alpha\) est la constante d'atténuation et \(\beta\) est la constante de phase.
+
+En prenant une onde se propageant suivant Oz:
+\begin{align*}
+	&E_x(z) = E_{0x} e^{-\gamma z}\\
+	&E_y(z) = E_{0y}e^{-\gamma z}\\
+	&E_z(z) = 0
+\end{align*}
+
+On a donc un terme d'amortissement, \(e^{-\alpha z}\) (caché dans le $\gamma$)
+
+Si on considère uniquement une polarisation linéaire suivant Ox :
+\[
+	rot \vec{E} = -j \omega \mu \vec{H} \quad H_y = \dfrac{j}{\omega \mu} \dfrac{\partial E_x (z)}{\partial z} = \dfrac{-j \gamma}{\omega\mu} E_{0x}e^{-\gamma z}
+\]
+
+L'impédance intrinsèque est donc :
+\[
+	\eta = \dfrac{j \omega \mu}{\gamma}
+\]
+
+En prenant \(\gamma = jk\) un imaginaire pur, on retrouve le cas sans perte.
+
+\subsection{Dans le cas d'un bon conducteur : \(\sigma \gg \omega \varepsilon\)}
+
+\[\gamma = \alpha + j\beta \simeq j\omega \sqrt{\varepsilon\mu} \sqrt{1 - j\dfrac{\sigma}{\omega \varepsilon}} = (1 + j) \sqrt{\dfrac{\omega \mu \sigma}{2}}\]
+
+\[
+	\eta = \dfrac{j\omega \mu}{\gamma} \simeq \dfrac{j\omega \mu}{(1 + j) \sqrt{\dfrac{\omega \mu \sigma}{2}}}
+\]
+
+On appelle, l'épaisseur \(z = \delta_s\) telle que \(E_x(\delta_s) = E_{0x} / e \) soit \(e^{-\alpha \delta_s} = e^{-1}\), l'épaisseur de peau.
+
+\paragraph{Calcul de l'épaisseur de peau à \unit{10}{\giga\hertz}}
+\[
+	\delta_s = \dfrac{1}{\alpha} = \sqrt{\dfrac{2}{\omega \mu \sigma}} = \sqrt{\dfrac{1}{\pi f \mu_0 \sigma}} = \unit{700}{\nano\meter}
+\]
+
+L'onde électromagnétique ne peut se propager que sur une épaisseur très faible d'un métal, il n'y a pas réellement de propagation.
+À haute fréquence, l'onde passe moins facilement, à basse fréquence, l'onde passe mieux.
+
+À retenir, on ne peut pas vraiment dire qu'une onde électromagnétique se transmet dans un métal.
+
+\subsection{Cas d'un bon diélectrique \(\sigma = 0\) à pertes \(\varepsilon_r = \varepsilon_r' - j\varepsilon_r''\)}
+
+On a dans ce cas, l'équation de Helmotz :
+\[
+	\vec{\Delta E} (r) + \omega^2 \varepsilon_0 \varepsilon_r' \mu (1 - j\tan(\delta)) \vec{E}(r)) = 0
+\]
+
+Encore, \(\delta_s = \dfrac{1}{\alpha}\)
+Mais avec :
+\[
+	\alpha = \dfrac{\omega \sqrt{\varepsilon \mu}}{\sqrt{2}} \left[ \sqrt{1 - (\tan (delta))^2} - 1 \right]^{1/2}
+\]
+
+\section{Les diélectriques, l'origine physique}
+
+\subsection{Propagation d'une onde electro magnétique dans un milieu diélectrique : les différentes polarisations}
+
+Les ondes EM se propage correctemeent dans un milieu diélectrique, dans ce cas :
+\[
+	\vec{D} = \varepsilon_0 \vec{E} + \vec{P}
+\]
+Pour un matériau linéaire :
+\[
+	\vec{D} = \varepsilon_0 \vec{E} + \vec{P} = \varepsilon_0 (1 + \chi_e) \vec{E = \varepsilon_0 \varepsilon_r \vec{E}}
+\]
+
+\paragraph{La polarisation électronique :} L'application d'un champ électriqeu sur le diélectrique induit un léger déplacement du nuage électronique de l'atome par rapport à son noyau. Un dipôle est alors créé. Cette polarisation intervient pour des fréquences supérieures aux fréquences optiques ( de l'ordre de \unit{10^{15}}{\hertz} c'est à dire l'ultra-violet lointain).
+
+\subsubsection{Modèle de Drude-Lorentz}
+
+Force de rappel : \(\vec{F} = - m \omega_0^2 \vec{u}\)
+
+Force de frottement : \(\vec{F} = - \dfrac{m}{\tau} \vec{v}\)
+
+Force électrique : \(\vec{F} = q\vec{E}\)
+
+Avec le principe fondamentale de la dynamique on a :
+
+
+
 \end{document}
