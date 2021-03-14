@@ -1320,6 +1320,13 @@ Avec \(\vec{E_0}\) un vecteur constant. Si il est à composantes réelles, la po
 
 \subsection{Onde plane dans un milieu diélectrique avec une conductivité \(\sigma\) non nulle}
 
+Nous avons : 
+\[
+	\varepsilon_r = \varepsilon_r' - j\varepsilon_r' - j \dfrac{\sigma}{\omega \varepsilon_0} = \varepsilon_r' - j \dfrac{\sigma}{\omega \varepsilon_0}
+\]
+
+Avec \(\varepsilon_r'\) la partie réelle de la permittivité diélectrique relative
+
 Équation de Helmotz :
 \[
 	\vec{\Delta E} (r) + \omega^2 \varepsilon_0 \varepsilon_r' \mu (1 - j\dfrac{\sigma}{\omega \varepsilon_0 \varepsilon_r'} \vec{E}(r)) = 0
@@ -1424,6 +1431,77 @@ Force électrique : \(\vec{F} = q\vec{E}\)
 
 Avec le principe fondamentale de la dynamique on a :
 
+\[
+	m \dfrac{d^2 \vec{u}}{dt^2} = q\vec{E} - m\omega_0^2 \vec{u} - \dfrac{m}{\tau} \vec{v}
+\]
 
+On a donc la position \(u\) :
+\[
+	u = \dfrac{qE}{m\left( \omega_0^2 - \omega^2 - j \dfrac{\omega}{\tau}\right)}
+\]
+
+Et le vecteur polarisation :
+\[
+	\vec{P} = \varepsilon_0 \chi_e \vec{E} \quad \text{ Avec } 1 + \chi_e = \varepsilon_r
+\]
+
+\[
+	\Rightarrow \chi_e = \dfrac{nq^2}{\varepsilon_0 m\left( \omega_0^2 - \omega^2 - j \dfrac{\omega}{\tau}\right)} \Rightarrow \chi_e = \chi_e(0)\dfrac{\omega_0^2}{\omega_0^2 - \omega^2 - j \dfrac{\omega}{\tau}}
+\]
+
+Dans le cas d'un amortissement faible (ce qui est le cas pour la polarisation électrique) :
+\[
+	\vec{F} = \dfrac{-m}{\tau}\vec{v} \quad \tau \gg 1, \omega_0 \tau \gg 1 \Rightarrow \text{ NOus avons une résonnance}
+\]
+
+\paragraph{La polarisation d'électrode} (aussi appelée polarisation de charge d'espace ou d'interface):
+
+L'application d'un champ électrique sur un diélectrique induit un déplacement de charges mobiles. Ce déplacement a pour effet l'accumulation de charges au voisinage des électrodes. Cette polarisation intervient pour des ??
+
+\paragraph{La polarisation ionique} : l'application d'un champ électrique sur un diélectrique induit un déplacement des ions + parallèle aux ions -, ça intervient pour des fréquences de l'ordre du \unit{}{\tera\hertz}
+
+\paragraph{Polarisation dipolaire} : l'application d'un champ électrique sur un diélectrique induit l'orientation des dipôle dans le sens du champ électrique. Cette polarisation intervient pour des fréquences inférieures au \unit{}{\giga\hertz}
+
+\section{Les diélectrique, l'origine physique}
+
+La polarisation dipolaire ...
+
+\subsection{Modèle de relaxation de Debye}
+
+\[
+	\left\lbrace
+		\begin{array}{rcl}
+		\varepsilon_r' & = & \varepsilon_\infty + \dfrac{\varepsilon_S - \varepsilon_\infty}{1 + \omega \tau^2}\\
+		\varepsilon_r'' & = & \varepsilon_S - \varepsilon_\infty) \dfrac{\omega \tau}{H \omega^2 \tau^2}
+		\end{array}
+	\right.
+\]
+
+Avec :
+\begin{align*}
+	\tau &= \text{ La constante de temps du phénomène de relaxation}\\
+	\varepsilon_S &= \text{ La permitivité électrique statique}\\
+	\varepsilon_\infty &= \text{ La permitivité électrique à force infinie} 
+\end{align*}
+
+Moment dipolaire permanent et relaxation dipolaire autour du \unit{}{\giga\hertz}
+
+\paragraph{exemples} de variation de \(\varepsilon'\) autour du \unit{}{\giga\hertz} (relaxation des liquides)
+
+En fonction des liquides, on rajoute ou pas le second terme en \(\tau \simeq 05/m\)
+\[
+	\Rightarrow \tan \delta = \dfrac{\varepsilon_r''}{\varepsilon_r'}
+\]
+
+On applique le principe du four micro-onde : La tangente de perte (\(\tan \delta\)) varie fortement en fonction de la relaxation dipolaire, le max pour l'eau est autour de \unit{20}{\giga\hertz} \(\neq\) à la fréquence du four micro-onde (\unit{2.45}{\giga\hertz})
+
+On a le coefficient d'atténuation de l'onde
+\[
+	\alpha = \dfrac{\omega\sqrt{\varepsilon \mu}}{\sqrt{2}} \left[ \sqrt{1-(\tan \delta)^2} - 1 \right]^{1/2}
+\]
+
+\begin{center}
+\textbf{CM9 (2021-03-xx)}
+\end{center}
 
 \end{document}
