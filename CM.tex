@@ -1472,7 +1472,7 @@ La polarisation dipolaire ...
 	\left\lbrace
 		\begin{array}{rcl}
 		\varepsilon_r' & = & \varepsilon_\infty + \dfrac{\varepsilon_S - \varepsilon_\infty}{1 + \omega \tau^2}\\
-		\varepsilon_r'' & = & \varepsilon_S - \varepsilon_\infty) \dfrac{\omega \tau}{H \omega^2 \tau^2}
+		\varepsilon_r'' & = & (\varepsilon_S - \varepsilon_\infty) \dfrac{\omega \tau}{H \omega^2 \tau^2}
 		\end{array}
 	\right.
 \]
@@ -1501,7 +1501,111 @@ On a le coefficient d'atténuation de l'onde
 \]
 
 \begin{center}
-\textbf{CM9 (2021-03-xx)}
+\textbf{CM9 (2021-03-18)}
 \end{center}
+
+Peut-on faire de la wifi dans l'eau de mer ?
+
+\[
+	\gamma = (1+j) \sqrt{\dfrac{\omega \mu \sigma}{2}}
+\]
+
+Avec \(\omega = \unit{2.4}{\giga\hertz}\) ou \(\unit{5.8}{\giga\hertz}\), \(\mu = \mu_0\) car il n'y a pas de magnétisme dans l'eau de mer, et \(\sigma\) la permittivité de l'eau de mer.
+
+Plus \(\gamma\) est grand, plus l'atténuation est grande. Donc de la wifi à \(\unit{5.8}{\giga\hertz}\) ira moins loin que de la wifi à \(\omega = \unit{2.4}{\giga\hertz}\)
+
+\section{Énergie et puissance d'une onde électromagnétique}
+
+\subsection{Propagation d'une onde électromagnétique : Cas général}
+
+À partir des équations de Maxwell, nous pouvons écrire :
+
+\begin{align*}
+	\dfrac{-1}{2} \int_v \vec{E}\vec{J}^\star source dv = & \dfrac{1}{2}\int_S ( \vec{E} \wedge \vec{H}^\star) ds\\
+	& + \dfrac{1}{2} \int_v \sigma \vert \vec{E} \vert ^2 dv\\
+	& + \dfrac{1}{2} \int_V j\omega \left( -\varepsilon' \vert \vec{E} \vert ^2 + \mu' \vert \vec{H} \vert ^2 \right) dv\\
+	& + \dfrac{1}{2} \int_V \omega \left( \varepsilon'' \vert \vec{E} \vert ^2 + \mu'' \vert \vec{H} \vert ^2 \right) dv
+\end{align*}
+
+Le théorème de Poynting.
+
+\(\dfrac{1}{2}\int_S ( \vec{E} \wedge \vec{H}^\star) ds\) le flux du vecteur de Poynting
+
+On a, le vecteur de Poynting :
+\[
+	\vec{E} \wedge \vec{H}^\star = \vec{S}
+\]
+
+La valeur moyenne temporelle du vecteur de Poynting :
+\[
+	\vec{S_{moy}} = \dfrac{1}{2}Re(\vec{E} \wedge \vec{H}^\star)
+\]
+
+\section{Transmission réflexion en incidence normale}
+
+\subsection{Matériaux sans perte}
+
+l'onde plane incidente avec une polarisation rectiligne suivant (Ox), pour \(z<0\) :
+\[
+	\vec{E_i} = \text{\^x} E_0 e^{-jk_0z}
+\]
+\[
+	\vec{H_i} = \text{\^y} \dfrac{E_0}{\eta_0} e^{-jk_0z}
+\]
+
+Rappel : \(\vec{H} = \dfrac{k}{\omega\mu} \vec{n} \wedge \vec{E}\)
+
+On a matériau sans perte donc : \(\gamma = \alpha + j \beta = 0 + jk \Leftrightarrow \gamma^2 = -k^2\), donc on peut écrire \(\vec{k}\) le vecteur de propagation.
+
+On a une onde transmise, et une onde réfléchie.
+Pour la réflexion on a :
+\[
+	\vec{E_r} = \text{\^x} \Gamma E_0 e^{jk_0z}
+\]
+\[
+	\vec{H_r} = -\text{\^y} \dfrac{\Gamma E_0}{\eta_0} e^{j k_0 z}
+\]
+
+Avec \(\Gamma\) le coefficient de réflexion., le direction du champs \(\vec{H_r}\) change, on a donc le changement de signe
+
+Pour la transmission on a :
+\[
+	\vec{E_t} = \text{\^x} T E_0 e^{- \gamma z}
+\]
+\[
+	\vec{H_t} = \text{\^y} \dfrac{T E_0}{\eta} e^{-\gamma z}
+\]
+
+Avec \(T\) le coefficient de transmission, on change de matériau, donc on n'a plus \(k_0\), on remplace donc par le cas général \(\gamma\), l'impédance du milieu change, donc on n'a plus \(\eta_0\) mais \(\eta\).
+
+\(\Gamma = \dfrac{\eta - \eta_0}{\eta + \eta_0}\) et \(T = 1 + \Gamma = \dfrac{2\eta}{\eta + \eta_0}\)
+
+Rappel :
+
+\includegraphics[scale=0.5]{tab.png}
+
+\[
+	P_l = \dfrac{\sigma |E_0|^2 |T|^2}{4\alpha}
+\]
+
+Pour un conducteur parfait : \(\sigma \rightarrow \infty\), \(T \rightarrow 0 \Rightarrow \Gamma \rightarrow -1\)
+
+\subsection{Incidence oblique}
+
+(Pour simplifier on se place en polarisation dans le plan (xoz))
+
+\[
+	\vec{E_i} = E_0 ( x \cos \theta_i - z \sin \theta_i) e^{-jk_1 (x\sin\theta_i + z\cos\theta_i)}
+\]
+\[
+	\vec{H_y} = y \dfrac{E_0}{\eta_1} e^{-jk_1 (x \sin \theta_i + z\cos \theta_i)}
+\]
+
+avec \(k_1 = \omega \sqrt{\varepsilon_1 \mu_0}\) et \(\eta_1 = \sqrt{\dfrac{\mu_0}{\varepsilon_1}}\)
+
+\begin{center}
+\textbf{CM10 (2021-03-25)}
+\end{center}
+
 
 \end{document}
