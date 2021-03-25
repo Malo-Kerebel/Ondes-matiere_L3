@@ -1603,9 +1603,170 @@ Pour un conducteur parfait : \(\sigma \rightarrow \infty\), \(T \rightarrow 0 \R
 
 avec \(k_1 = \omega \sqrt{\varepsilon_1 \mu_0}\) et \(\eta_1 = \sqrt{\dfrac{\mu_0}{\varepsilon_1}}\)
 
+\chapter{Lignes de transmission et guides d'ondes}
+
 \begin{center}
 \textbf{CM10 (2021-03-25)}
 \end{center}
 
+\section{Solution générale}
+
+Rappel, résolution de l'équation de Helmholtz dans un milieu infini :
+\[
+	\vec{E}(x,y,z) = \vec{E_0}e^{-\gamma z} 
+\]
+
+Pour un milieu non infini : 
+\[
+	\vec{E}(x,y,z) = \vec{E_0}(x,y,z)e^{-\gamma z}
+\]
+
+On simplifie en disant qu'il y a une symétrie de translation suivant (Oz), il y a donc indépendance en z.
+\begin{align*}
+	\vec{E}(x,y,z) &= \vec{E_0}(x,y) e^{-\gamma z} = (\vec{e}(x,y) + \text{\^z} e_z (x,y))e^{-j\beta z}
+\end{align*}
+
+Avec : \(\gamma = \alpha + j\beta \quad \beta\) constante de phase et \(\alpha=0\) l'atténuation
+
+\[
+	\vec{H}(x,y,z) = \vec{H_0}(x,y) e^{-\gamma z}= (\vec{h} (x,y) + \text{\^z} h_z (x,y))e^{-j\beta z}
+\]
+\(\nabla \times \vec{E} = -j\omega \mu \vec{H}\)
+\[
+	\left[
+	\begin{array}{c}
+		\dfrac{\partial E_z}{\partial y} - \dfrac{\partial E_y}{\partial z}\\\\
+		\dfrac{\partial E_w}{\partial z} - \dfrac{\partial E_z}{\partial x}\\\\
+		\dfrac{\partial E_y}{\partial x} - \dfrac{\partial E_x}{\partial y}
+	\end{array}
+	\right]
+	= -j\omega \mu
+	\left[
+	\begin{array}{c}
+		H_x\\
+		H_y\\
+		H_z
+	\end{array}
+	 \right]
+\]
+
+\(\nabla \times \vec{H} = j\omega \varepsilon \vec{E}\)
+\[
+	\left[
+	\begin{array}{c}
+		\dfrac{\partial H_z}{\partial y} - \dfrac{\partial H_y}{\partial z}\\\\
+		\dfrac{\partial H_w}{\partial z} - \dfrac{\partial H_z}{\partial x}\\\\
+		\dfrac{\partial H_y}{\partial x} - \dfrac{\partial H_x}{\partial y}
+	\end{array}
+	\right]
+	= j\omega \varepsilon
+	\left[
+	\begin{array}{c}
+		E_x\\
+		E_y\\
+		E_z
+	\end{array}
+	 \right]
+\]
+
+On a :
+\[
+	\left\lbrace
+		\begin{array}{c}	
+			\dfrac{\partial E_z}{\partial y} + \gamma E_y = -j\omega \mu H_x\\
+			-\gamma E_x - \dfrac{\partial E_z}{\partial x} = -j\omega \mu H_y\\\\
+			\dfrac{\partial E_y}{\partial x} - \dfrac{\partial E_x}{\partial y} = -j\omega \mu H_z
+		\end{array}
+	\right.
+\]
+
+\[
+	\left\lbrace
+		\begin{array}{c}	
+			\dfrac{\partial H_z}{\partial y} + \gamma H_y = j\omega \varepsilon E_x\\
+			-\gamma H_x - \dfrac{\partial H_z}{\partial x} = j\omega \varepsilon E_y\\\\
+			\dfrac{\partial H_y}{\partial x} - \dfrac{\partial H_x}{\partial y} = j\omega \varepsilon E_z
+		\end{array}
+	\right.
+\]
+
+\[
+	\Rightarrow H_x = \dfrac{1}{-j\omega \mu} \left( \dfrac{\partial E_z}{\partial y} + \gamma E_y \right)
+\]
+\[
+	\Rightarrow E_y = \dfrac{1}{-j\omega \varepsilon} \left( -\dfrac{\partial H_z}{\partial x} - \gamma H_x \right)
+\]
+
+En posant : \(k_c^2 = \gamma^2 + \omega^2 \varepsilon \mu = \omega^2 \varepsilon \mu - \beta^2\) la fréquence de coupure :
+
+\[
+	H_x = \dfrac{j}{k_c^2}\left( \varepsilon \omega \dfrac{\partial E_z}{\partial y} - \beta \dfrac{\partial H_z}{\partial x} \right)
+\]
+
+De la même façon :
+\begin{align*}
+	H_x &= \dfrac{j}{k_c^2}\left( \varepsilon \omega \dfrac{\partial E_z}{\partial y} - \beta \dfrac{\partial H_z}{\partial x} \right)\\
+	H_y &= \dfrac{-j}{k_c^2}\left( \varepsilon \omega \dfrac{\partial E_z}{\partial x} - \beta \dfrac{\partial H_z}{\partial y} \right)\\
+	E_x &= \dfrac{-j}{k_c^2}\left( \beta \dfrac{\partial E_z}{\partial x} - \mu \omega \dfrac{\partial H_z}{\partial y} \right)\\
+	E_y &= \dfrac{j}{k_c^2}\left( - \beta \dfrac{\partial E_z}{\partial y} - \mu \omega \dfrac{\partial H_z}{\partial x} \right)
+\end{align*}
+
+Nous définissons 3 modes spécifiques de propagation :
+
+\subsection{Le mode TEM: transverse, électrique et magnétique \(E_z = H_z = 0\)}
+
+On ne peut pas utiliser les équations précédentes car on a une division par 0 dans ce cas.
+\begin{align*}
+	\gamma E_y &= -j\omega \mu H_x\\
+	-\gamma E_x &= -j\omega \mu H_y\\
+	\dfrac{\partial E_y}{\partial x} - \dfrac{\partial E_x}{\partial y} &= 0\\
+	\\
+	\gamma H_y &= j\omega \varepsilon E_x\\
+	-\gamma H_x &= j\omega \varepsilon E_y\\
+	\dfrac{\partial H_y}{\partial x} - \dfrac{\partial H_x}{\partial y} &= 0
+\end{align*}
+
+L'équation d'Helmoltz reste la même :
+\[
+	\Delta \vec{E}(r,t) - \dfrac{\varepsilon \mu \partial^2 \vec{E}(r,t)}{\partial t^2} = 0
+\]
+
+On peut la transformer :
+\[
+	\left( \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial}{\partial y^2} \right) E_x(x,y) = 0
+\]
+
+Car \(k = \beta = \omega \sqrt{\varepsilon \mu}\)
+
+Les composantes transverse des champs ont les même propriétés que des champs E et H en électrostatique ou magnétostatique.
+
+\paragraph{Impédance d'onde des modes TEM :} \(\vec{h} (x,y) = \dfrac{1}{Z_{TEM}} \text{\^z} \times \vec{e} (x,y)\)
+\[
+	Z_{TEM} = \dfrac{E_x}{H_y} = \dfrac{\omega \mu}{\beta} = \sqrt{\dfrac{\mu}{\varepsilon}} = \eta \quad \text{ Avec } \beta = k
+\]
+
+\[
+	Z_{TEM} = \dfrac{-E_y}{H_x} = \sqrt{\dfrac{\mu}{\varepsilon}} = \eta \quad \text{ Impédance de la fréquence}
+\]
+
+\paragraph{Procédure pour traiter une propagation TEM :} \quad
+
+\begin{enumerate}
+	\item Trouver le potentiel V(x,y) avec des constantes inconnues
+	\item Déterminer les inconnues (conditions aux limites)
+	\item Trouver les composantes transverses de E
+	\item  Puis de H (avec l'impédance)
+\end{enumerate}
+
+\subsection{Mode TE : pas de composante longitudinale du champ E \(E_z = 0\)}
+
+\begin{align*}
+	H_x &= \dfrac{j}{k_c^2}\left(\beta \dfrac{\partial H_z}{\partial x} \right)\\
+	H_y &= \dfrac{-j}{k_c^2}\left( \beta \dfrac{\partial H_z}{\partial y} \right)\\
+	E_x &= \dfrac{-j}{k_c^2}\left(\mu \omega \dfrac{\partial H_z}{\partial y} \right)\\
+	E_y &= \dfrac{j}{k_c^2}\left(\mu \omega \dfrac{\partial H_z}{\partial x} \right)
+\end{align*}
+
+Dans ce cas on a \(k_c \neq 0\), pour utiliser ces relations, il faut calculer \(H_z\)
 
 \end{document}
