@@ -1767,6 +1767,231 @@ Les composantes transverse des champs ont les même propriétés que des champs 
 	E_y &= \dfrac{j}{k_c^2}\left(\mu \omega \dfrac{\partial H_z}{\partial x} \right)
 \end{align*}
 
-Dans ce cas on a \(k_c \neq 0\), pour utiliser ces relations, il faut calculer \(H_z\)
+Dans ce cas on a \(k_c \neq 0\), pour utiliser ces relations, il faut calculer \(H_z\). On a \(k_x^2 = \gamma^2 + \omega^2 \varepsilon \mu = \omega^2 \varepsilon \mu - \beta^2\), on suppose qu'il n'y a pas de perte dans le matériau diélectrique, \(\gamma = j \beta\)
+
+\begin{center}
+\textbf{CM11 (2021-04-01)}
+\end{center}
+
+Forme de H: \(\vec{H} (x,y,z) = (\vec{h} (x,y) + \text{\^z} h_z(x,y))e^{-j\beta z}\).
+
+Équation de Helmholtz pour la composante \(H_z\) : \(\left ( \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2} + \dfrac{\partial^2}{\partial z^2} + k^2 \right ) H_z (x,y,z) = 0\)
+
+Avec : \(H_z (x, y, z) = h_z(x,y) e^{-j\beta z}\)
+
+\[
+	\left ( \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2} + k_c^2 \right ) h_z(x,y) = 0
+\]
+
+Avec \(k_c^2 = k^2 - \beta^2 = \omega^2 \varepsilon \mu - \beta^2\)
+
+\subsubsection{Impédance d'onde des modes TE}
+
+\[
+	Z_{TE} = \dfrac{E_x}{H_y} = -\dfrac{E_y}{H_x} = \dfrac{\omega \mu }{\beta} = \dfrac{k\eta}{\beta}
+\]
+
+\subsection{Mode TM: pas de composante longitudinale du champs H (\(H_z = 0\)) }
+
+Procédure pour traiter une propagation TE/TM:
+\begin{enumerate}
+	\item Résoudre l'équation de Helmhotz pour trouver \(h_z\) ou \(e_z\)
+	\item Trouver les composantes transverses à partir de \(h_z\) ou \(e_z\)
+	\item Appliquer les conditions aux limites
+\end{enumerate}
+
+\subsection{Pertes diélectriques pour les modes TEM et TE/TM}
+
+\[
+	\gamma = \alpha + j\beta = \sqrt{k_c^2-k^2}
+\]
+\[
+	k^2 = \omega^2 \mu \varepsilon = \omega^2 \mu(\varepsilon' 6 j\varepsilon'') = \omega^2 \mu \varepsilon'(1-j \tan \delta )
+\]
+
+\[
+	\gamma = \sqrt{k_c^2 6 \omega^2 \mu_0 \varepsilon_0 \varepsilon_r (1 6 j \tan \delta )} \quad \text{Sans magnétisme} 
+\]
+
+Avec des DL et \(\tan \delta \ll 1\) on a :
+\[
+	\gamma \simeq \sqrt{k_c^2 - k^2} + \dfrac{jk^2 \tan \delta}{2\sqrt{k_c^2 - k^2}}
+\]
+
+\[
+	\gamma \simeq \dfrac{k^2 \tan \delta}{2\beta} + j\beta
+\]
+
+En TE et TM : \(\alpha = \dfrac{k^2\tan \delta}{2\beta}\) et en TEM \(\alpha = \dfrac{k \tan\delta}{2}\) (On a \(j\beta = \sqrt{k_c^2 - k^2}\))
+
+\section{Guide à faces parallèles}
+
+Guide le plus simple qui supporte les modes TE et TM, et TEM (2 électrodes). Nous nous plaçons dans le cas de matériaux métalliques parfaits, le champ électrique est nul à l'intérieur.
+
+\subsubsection{Étude du mode TEM}
+
+\[
+	\left ( \dfrac{\partial^2}{\partial x^2} + \dfrac{\partial}{\partial y^2} \right ) V(x,y) = 0 \quad \text{ Pour } 0< x < > ; 0 < y < d
+\]
+
+En supposant un potentiel nul pour la plaque du bas, nous pouvons écrire :
+\[
+	V(x,0) = 0
+\]
+\[
+	V(x,d) = V_0
+\]
+
+Du fait de la symétrie, nous n'avons pas de dépendance de V en fonction de x
+\[
+	V = V(y) = A + By = V_0 y/d
+\]
+
+\[
+	\vec{e} = -grad V
+\]
+
+Le champ transverse s'écrit donc : \(\vec{e}(x,y) = \dfrac{-V_0}{d}\text{\^y}\)
+
+\[
+	\vec{E}(x,y,z)=\vec{e}(x,y) e^{-\gamma z} = \vec{e}(x,y) e^{-j\beta z} quad \text{ Dans un cas sans perte} 
+\]
+
+\[
+	\vec{H}(x,y,z) = \vec{h}(x,y) e^{-j\beta z}
+\]
+
+\[
+	\vec{H}(x,y,z) = \dfrac{1}{eta} \text{\^z} \times \vec{E}(x,y,z) = \text{\^x} \dfrac{V_0}{\eta d} e^{-j\beta z}
+\]
+Avec \(\beta = \omega \sqrt{\varepsilon \mu}\) et \(\eta = \sqrt{\dfrac{\varepsilon}{\mu}}\)
+
+\subsubsection{Étude du mode TM}
+
+Les modes TM sont caractérisés par \(H_z = 0\), et \(E_z\) différent de 0
+
+Équation de Helmholtz pour la composante \(E_z\) : 
+\[
+	\left ( \dfrac{\partial}{\partial x^2} + \dfrac{\partial}{\partial y^2} + \dfrac{\partial}{\partial z^2} + k^2\right ) E_z(x,y,z) = 0
+\]
+
+Avec \(E_z (x,y,z) = e_z(x,y) e^{-j\beta z}\)
+
+\[
+	\left ( \dfrac{\partial}{\partial x^2} + \dfrac{\partial}{\partial y^2} + k_c^2\right ) e_z(x,y) = 0
+\]
+
+Ici \(e_z(x,y)\) est indépendant de x du faire de la géométrie du guide:
+\[
+	\left ( \dfrac{\partial}{\partial y^2} + k_c^2\right ) e_z(y) = 0
+\]
+
+\[
+	e_z(y) = A \sin(k_c y) + B \cos(k_c y)
+\]
+
+Composante tangentielle à la surface continue
+\[
+	e_z (y) = 0 \qquad \text{À } y=0, y=d
+\]
+
+\[
+	\Rightarrow \left \lbrace \begin{array}{l}
+	B=0\\
+	k_c = \dfrac{n\pi}{d}	
+	\end{array}
+	\right .
+\]
+
+\[
+	e_z(y) = A_n \sin\left ( \dfrac{n\pi}{d}y\right )
+\]
+
+\[
+	E_z (x,y,z) = A_n \sin\left ( \dfrac{n\pi}{d}y\right )e^{-j\beta z}
+\]
+
+\[
+	\left \lbrace \begin{array}{l}
+	H_x = \dfrac{j\omega \varepsilon}{k_c} A_n \cos \left (\dfrac{n\pi}{d}y\right ) e^{-j\beta z}\\
+	E_y = \dfrac{-j\beta}{k_c} A_n \cos \left ( \dfrac{n\pi}{d} y \right ) e^{-j \beta z}\\
+	E_x = H_y = 0
+	\end{array}
+	\right.
+\]
+
+Pour \(n = 0\), on a \(E_z = 0 \Rightarrow\) les champs \(E_y\) et \(H_x\) sont constants
+
+Le mode \(TM_0\) est alors identique au mode TEM.
+
+Pour \(n>0\) la situation est différente : chaque mode possède sa propre constante de propagation
+\[
+	\beta = \sqrt{k^2 - k_c^2} = \sqrt{k^2 - (n\pi/d)^2}
+\]
+
+\(\beta\) est un réel seulement quand \(k > k_c\)
+\[
+	k = \omega \sqrt{\varepsilon \mu}
+\]
+k étant proportionnel à la fréquence, il n'y aura propagation uniquement après la fréquence de coupure \(f_c\)
+
+\[
+	f_c = \dfrac{k_c}{2\pi\sqrt{\varepsilon \mu}} = \dfrac{n}{2d \sqrt{\varepsilon \mu}}
+\]
+
+La vitesse de phase : \(v_p = \dfrac{\omega}{\beta}\)
+
+\[
+	\beta = \sqrt{k^2 - k_c^2} = \sqrt{k^2 - (n\pi/d)^2}
+\]
+\(\beta\) devient inférieur à k, donc la vitesse de phase devient supérieur à c.
+
+\paragraph{Impédance}\quad
+
+\[
+	Z_{TM} = \dfrac{-E_y}{H_x} = \dfrac{\beta}{\omega \varepsilon} = \dfrac{\beta \eta}{k}
+\]
+
+La puissance moyenne traversant une section transverse du guide est :
+\begin{align*}
+	P_{moy} &= \dfrac{1}{2} Re \int_S \vec{E} \wedge \vec{H}* \text{\^n} ds\\
+	&= \dfrac{1}{2} Re \int_{w=0; y=0}^{x=W; y=d}\vec{E} \wedge \vec{H}* \text{\^z} dxdy\\
+	&= \dfrac{1}{2} Re \int_{w=0; y=0}^{x=W; y=d} E_y H_x* dxdy
+\end{align*}
+
+\[
+	P_{moy} =  \dfrac{WRe(\beta) \varepsilon \omega d}{2 k_c^2} |A_n|^2 \int_{y=0}^{y=d} \cos^2\left ( \dfrac{n\pi y}{d} \right ) dy
+\]
+
+Pour n > 0 
+\[
+	P_{moy} = \dfrac{WRe(\beta) \varepsilon \omega d}{4 k_c^2} |A_n|^2
+\]
+Quand n = 0
+\[
+	P_{moy} = \dfrac{WRe(\beta) \varepsilon \omega d}{2 k_c^2} |A_n|^2
+\]
+
+\subsubsection{Étude du mode TE}
+
+Les modes TM sont caractérisé par \(E_z = 0\), et \(H_z\) différent de 0.
+
+\[
+	h_z(y) = A\sin(k_c y) + B \cos(k_c y)
+\]
+
+Composante tangentielle du champ électrique à la surface continue
+\[
+	E_x(y) = 0 \qquad \text{À} y=0, y= d
+\]
+
+Nous devons donc d'abord calculer \(E_x\).
+\[
+	E_x (x,y,z)= \dfrac{-j\omega \mu }{k_c} \left ( A \cos(k_c y) - B \sin (k_c y) \right ) e^{-j \beta z}
+\]
+
+\section{La ligne coaxiale}
+
+
 
 \end{document}
