@@ -30,6 +30,8 @@
 \def\cyr{\tencyr\cyracc}
 \def\dc{\mbox{\cyr SH}}
 
+%macro
+\newcommand{\E}[1]{\cdot 10^{#1}}
 
 \begin{document}
 
@@ -2039,5 +2041,81 @@ Avec c = $3 \E{8} ms^{-1}$
 \subsubsection{Courants quasi-stationnaires}
 
 Si on décompose une ligne de grande longueur (l)en segments de longueur dx telle que $dx \ll l$. On peut alors considérer des courants quasi-stationnaires.
+
+\section{Équation des télégraphistes}
+
+\[
+	\dfrac{\partial i(x,t)}{\partial x} = - G \cdot v(x,t) - C \cdot \dfrac{\partial v(x,t)}{\partial t}
+\]
+
+\paragraph{Équation des télégraphistes}
+
+\[
+	\dfrac{\partial^2 v(x,t)}{\partial x^2} = LC \dfrac{\partial^2 (v(x,t)}{\partial t^2} + (RC + LG) \dfrac{\partial v(x,t)}{\partial t} + RG \cdot v(x,t)
+\]
+\[
+	\dfrac{\partial^2 i(x,t)}{\partial x^2} = LC \dfrac{\partial^2 i(x,t)}{\partial t^2} + (RC + LG) \dfrac{\partial i(x,t)}{\partial t} + RG \cdot i(x,t)
+\]
+
+Dans le cas d'une ligne sans pertes, il n'y a pas de résistance ni de conductance, \(R=G = 0\)
+
+\[
+	\dfrac{\partial^2 v(x,t)}{\partial x^2} = LC \dfrac{\partial^2 v(x,t)}{\partial t^2}
+\]
+\[
+	\dfrac{\partial^2 i(x,t)}{\partial x^2} = LC \dfrac{\partial^2 i(x,t)}{\partial t^2}
+\]
+
+Équation de propagation/ équation de d'Alembert (avec \(LC = 1/v^2 \))
+
+Équation générale de l'équation :
+
+Somme de fonctions à une variable prise en \(t - x/v\) et \(t + x/v\)
+
+\[
+	V(x,t) = f(t-x/v) + g(t+x/v)
+\]
+Somme d'une onde progressive et d'une onde réfléchie.
+
+\subsubsection{Impédance caractéristique}
+
+\[
+	Z_C = \sqrt{\dfrac{R + jL\omega}{G + jC\omega}}
+\]
+
+Dans le cas de la ligne sans perte, \(R=G=0\)
+\[
+	Z_C = \sqrt{\dfrac{L}{C}}
+\]
+
+\subsubsection{Calcul de l'impédance rapportée en x, Z(x)}
+
+\[
+	\underline{V(x)} = \underline{V}_i \cdot e^{-\gamma x} + \underline{V}_r \cdot e^{\gamma x} \qquad  \underline{I(x)} = \underline{I}_i \cdot e^{-\gamma x} + \underline{I}_r \cdot e^{\gamma x}
+\]
+
+En posant \(Z_0 = \dfrac{\underline{V(0)}}{\underline{I(0)}}\)
+\[
+	\Rightarrow Z(x) = Z_C \dfrac{Z_0 - Z_c \cdot \tanh(\gamma x)}{Z_C - Z_0 \cdot \tanh (\gamma x)}
+\]
+
+\subsubsection{Cas : \(Z_r = Z_C\) (Impédance de charge = impédance caractéristique)}
+
+\[
+	Z_0 = Z_C
+\]
+\[
+	Z_0 =  \dfrac{\underline{V(0)}}{\underline{I(0)}} = Z_C
+\]
+\[
+	\underline{V}_i = \underline{V}(0) \qquad \underline{V}_r = 0 \qquad \text{Pas de reflexion}
+\]
+
+\subsubsection{Cas \(Z_r = 0\)}
+\begin{center}
+
+\includegraphics[scale=0.5]{equa.png}
+
+\end{center}
 
 \end{document}
